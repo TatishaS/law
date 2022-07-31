@@ -585,11 +585,19 @@
               </form>
             </div>
             <div class="offer__contact">
-              <img
-                src="./images/photos/photo-offer.jpg"
-                alt="Фото Евгения"
-                class="offer__img"
-              />
+              <picture>
+                <source
+                  media="(max-width: 540px)"
+                  srcset="./images/photos/photo-offer-mobile.jpg"
+                />
+
+                <img
+                  src="./images/photos/photo-offer-desktop.jpg"
+                  alt="Фото Евгения"
+                  class="offer__img"
+                />
+              </picture>
+
               <p class="offer__name">Евгений Сапрыкин</p>
               <a class="offer__contact" href="mailto:lowyer@esaprykin.ru"
                 >lowyer@esaprykin.ru</a
