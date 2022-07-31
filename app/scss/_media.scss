@@ -35,8 +35,14 @@
   }
 
   .advantages__info {
-    flex: 0 0 48%;
+    flex: 1 0 48%;
   }
+
+  .advantages__photo img {
+    width: 90%;
+    height: auto;
+  }
+
   .steps__inner {
     max-width: 910px;
   }

@@ -82,19 +82,24 @@ $(function () {
     document.head.appendChild(script);
   }
 
+  /* Burger menu */
+
   function burgerMenu() {
     const burger = document.querySelector('.menu__burger');
     const menu = document.querySelector('.menu__list');
+    const overlay = document.querySelector('.overlay');
     const body = document.querySelector('body');
     burger.addEventListener('click', () => {
       if (!menu.classList.contains('active')) {
         menu.classList.add('active');
         burger.classList.add('active-burger');
         body.classList.add('locked');
+        overlay.classList.add('overlay--show');
       } else {
         menu.classList.remove('active');
         burger.classList.remove('active-burger');
         body.classList.remove('locked');
+        overlay.classList.remove('overlay--show');
       }
     });
     // Брейкпойнт, на котором появляется бургер-меню
