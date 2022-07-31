@@ -1,3 +1,42 @@
 .situations {
   margin-bottom: 45px;
+
+  &__title {
+    margin-bottom: 55px;
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  &__inner {
+    display: flex;
+    margin-bottom: 100px;
+  }
+  &__list-col {
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    padding-bottom: 50px;
+  }
+
+  &__list-col:not(:last-child) {
+    margin-right: 5%;
+  }
+
+  &__list-item {
+    flex: 1 0 25%;
+    position: relative;
+    margin-bottom: 30px;
+
+    &::before {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: #123e66;
+      top: 0;
+      left: -37px;
+    }
+  }
 }

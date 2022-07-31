@@ -67,6 +67,12 @@ body {
   }
 }
 
+.situations__inner .slick-next {
+  @media (max-width: 760px) {
+    bottom: -50px;
+  }
+}
+
 .slick-next:hover,
 .slick-next:focus {
   cursor: pointer;

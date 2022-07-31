@@ -42,11 +42,14 @@
     }
   }
   &__photo {
-    //flex: 1 0 auto;
     margin-top: 5px;
     img {
       width: 549px;
       height: 550px;
     }
+  }
+
+  &__photo--mobile {
+    display: none;
   }
 }
