@@ -1,0 +1,25 @@
+/* global breakpoints */
+
+$minwidth: 320px;
+$mw: 1178;
+
+/* Fonts */
+
+$fontfamily: '';
+
+/* Colors */
+
+$bg-color: #0a1a23;
+$text-color: #fff;
+$main-blue: #4eb2ea;
+$button-blue: #278cc6;
+
+/* Mixin for fancybox styles */
+
+@function max($numbers...) {
+  @return n#{a}x(#{$numbers});
+}
+
+@function min($numbers...) {
+  @return n#{i}n(#{$numbers});
+}

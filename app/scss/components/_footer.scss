@@ -1,0 +1,12 @@
+.footer {
+  padding: 78px 0;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo-img {
+    width: 272px;
+    height: 23px;
+  }
+}

@@ -1,0 +1,34 @@
+.about {
+  &__title {
+    margin-top: 69px;
+    margin-bottom: 116px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    margin-right: 35px;
+  }
+
+  &__text {
+    max-width: 385px;
+    margin-bottom: 65px;
+  }
+
+  &__video {
+    //background-image: url(../images/video-bg.jpg);
+    //background-repeat: no-repeat;
+    //background-position: top center;
+    //background-size: cover;
+    background-color: #6f6f6f;
+    width: 546px;
+    height: 364px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+}

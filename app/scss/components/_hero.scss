@@ -1,0 +1,42 @@
+.hero {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__info {
+    margin-right: 35px;
+  }
+  &__title {
+    max-width: 535px;
+    margin-bottom: 55px;
+  }
+  &__title-underline {
+    color: $main-blue;
+    text-decoration: underline;
+  }
+  &__text {
+    max-width: 426px;
+    margin-bottom: 68px;
+  }
+  &__contact {
+    padding-top: 25px;
+    padding-bottom: 65px;
+  }
+
+  &__photo {
+    flex-grow: 1;
+    width: 100%;
+  }
+  &__contact-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span,
+    a {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 39px;
+    }
+  }
+}

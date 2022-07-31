@@ -1,0 +1,26 @@
+.menu {
+  margin-top: 45px;
+  padding-bottom: 74px;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+  }
+
+  &__list-item {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 17px;
+  }
+
+  &__list-link {
+    transition: all 0.4s;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $main-blue;
+    }
+  }
+}

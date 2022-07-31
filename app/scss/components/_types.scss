@@ -1,0 +1,41 @@
+.types {
+  padding-bottom: 80px;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title {
+    max-width: 580px;
+    margin-bottom: 45px;
+  }
+  &__info {
+    margin-right: 40px;
+  }
+  &__text {
+    max-width: 440px;
+    margin-bottom: 65px;
+  }
+  &__list {
+    width: 50%;
+  }
+  &__list-item {
+    font-size: 40px;
+    line-height: 49px;
+    margin-bottom: 10px;
+  }
+  &__list-link {
+    transition: all 0.4s;
+    border-bottom: 1px solid transparent;
+    &:hover,
+    &:focus {
+      color: $main-blue;
+
+      border-bottom: 2px solid $main-blue;
+    }
+  }
+  &__list-item--active .types__list-link {
+    color: $main-blue;
+
+    border-bottom: 2px solid $main-blue;
+  }
+}

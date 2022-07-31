@@ -1,0 +1,91 @@
+@import 'vars';
+
+body {
+  height: 100%;
+  min-width: 320px;
+
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background-color: $bg-color;
+  color: $text-color;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+/* .wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+} */
+
+.main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: $mw + px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 65px;
+
+  &__blue {
+    color: $main-blue;
+  }
+}
+
+.slick-arrow {
+  background-color: transparent;
+  outline: none;
+  border: none;
+
+  svg path {
+    transition: all 0.4s;
+  }
+}
+
+.slick-next {
+  position: absolute;
+  bottom: -45px;
+  right: 0;
+}
+
+.slick-next:hover,
+.slick-next:focus {
+  cursor: pointer;
+  svg path {
+    stroke: $main-blue;
+  }
+}
+
+.cases .slick-next {
+  bottom: -160px;
+}
+
+.offer .fancybox-content {
+  padding: 0;
+}
+
+.offer .fancybox-map {
+  display: inline-block;
+  color: $main-blue;
+  font-size: 16px;
+  line-height: 31px;
+  border-bottom: 1px solid $main-blue;
+}
+
+#map {
+  display: none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+}

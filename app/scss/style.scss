@@ -1,0 +1,23 @@
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+@import 'libs';
+@import 'global';
+@import './components/header';
+@import './components/menu';
+@import './components/btn';
+@import './components/hero';
+@import './components/about';
+@import './components/checklist';
+@import './components/types';
+@import './components/advantages';
+@import './components/biography';
+@import './components/steps';
+@import './components/cases';
+@import './components/offer';
+@import './components/footer';
+
+@media (max-width: 768px) {
+}
+
+@import 'media';

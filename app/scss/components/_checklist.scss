@@ -1,0 +1,54 @@
+.checklist {
+  padding-bottom: 94px;
+  &__title {
+    margin-top: 85px;
+    margin-bottom: 40px;
+  }
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__text {
+    max-width: 315px;
+    margin-bottom: 50px;
+  }
+  &__name {
+    max-width: 450px;
+    font-size: 40px;
+    line-height: 40px;
+    span {
+      font-weight: 700;
+    }
+  }
+  &__img {
+    img {
+      width: 220px;
+      height: 225px;
+    }
+  }
+  &__form {
+    width: 402px;
+  }
+  &__form-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 3px solid $button-blue;
+    border-radius: 30px;
+    color: #fff;
+    background-color: transparent;
+    margin-bottom: 14px;
+  }
+  &__form-input:focus {
+    outline: none;
+  }
+  &__form-input::placeholder {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #6d6d6d;
+  }
+}

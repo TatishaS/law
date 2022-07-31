@@ -1,0 +1,45 @@
+.cases {
+  margin-top: 90px;
+  padding-bottom: 30px;
+  &__title {
+    max-width: 835px;
+    margin-bottom: 55px;
+  }
+
+  &__slider {
+    width: 100%;
+    margin-bottom: 110px;
+  }
+
+  &__btn {
+    width: 563px;
+    padding: 18px 30px;
+  }
+
+  &__items {
+    display: flex;
+  }
+
+  &__item-box {
+    width: 33.3%;
+  }
+  &__item-box:not(:last-child) {
+    border-right: 1px solid $main-blue;
+  }
+
+  &__item-title {
+    font-weight: 700;
+    padding-bottom: 18px;
+    padding-right: 20px;
+    border-bottom: 1px solid $main-blue;
+  }
+
+  &__item-text {
+    padding-top: 18px;
+    padding-right: 48px;
+  }
+  &__item-title--middle,
+  &__item-text--middle {
+    padding-left: 48px;
+  }
+}

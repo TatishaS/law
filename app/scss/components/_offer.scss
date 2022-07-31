@@ -1,0 +1,59 @@
+.offer {
+  margin-top: 140px;
+  padding-bottom: 110px;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__info {
+    margin-right: 20px;
+  }
+  &__title {
+    max-width: 539px;
+    margin-bottom: 80px;
+  }
+
+  &__text {
+    max-width: 430px;
+    margin-bottom: 25px;
+  }
+
+  &__form {
+    width: 372px;
+    margin-bottom: 50px;
+  }
+
+  &__form-input {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding: 10px;
+    background-color: transparent;
+    margin-bottom: 20px;
+  }
+
+  &__form-btn {
+    margin-top: 50px;
+  }
+
+  &__img {
+    width: 558px;
+    height: 459px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 39px;
+  }
+  &__contact {
+    display: block;
+    padding-bottom: 15px;
+  }
+  a[href^='mailto:'] {
+    color: #fff;
+  }
+}

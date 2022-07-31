@@ -1,0 +1,20 @@
+.btn {
+  min-width: 402px;
+  display: inline-block;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  color: #fff;
+  background: $button-blue;
+  border-radius: 30px;
+  padding: 18px 39px;
+  margin-right: auto;
+  border: none;
+  cursor: pointer;
+  transition: all 0.6s ease;
+
+  &:hover,
+  &:focus {
+    filter: drop-shadow(0px 4px 40px rgba(255, 255, 255, 0.4));
+  }
+}

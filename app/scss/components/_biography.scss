@@ -1,0 +1,20 @@
+.biography {
+  padding-bottom: 95px;
+  &__title {
+    max-width: 960px;
+    margin-top: 18px;
+    margin-bottom: 55px;
+  }
+
+  &__slider {
+    width: 100%;
+    margin-right: auto;
+  }
+
+  &__slide-text {
+    max-width: 760px;
+    font-size: 40px;
+    line-height: 49px;
+    margin-bottom: 65px;
+  }
+}
