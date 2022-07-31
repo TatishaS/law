@@ -14,12 +14,6 @@ body {
   word-wrap: break-word;
 }
 
-/* .wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-} */
-
 .main {
   flex: 1 0 auto;
 }
@@ -41,6 +35,10 @@ body {
   &__blue {
     color: $main-blue;
   }
+}
+
+.page__title {
+  margin-bottom: 25px;
 }
 
 .slick-arrow {

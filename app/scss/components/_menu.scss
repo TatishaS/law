@@ -1,6 +1,10 @@
 .menu {
   margin-top: 45px;
   padding-bottom: 74px;
+
+  &--inner {
+    padding-bottom: 0;
+  }
   &__list {
     display: flex;
     justify-content: space-between;
@@ -27,153 +31,161 @@
       color: $main-blue;
     }
   }
-}
 
-.menu__burger {
-  display: none;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-}
-
-// Burger menu styles
-@media screen and (max-width: 600px) {
-  .menu {
-    margin-top: 0;
-    padding-bottom: 0;
-    width: 100%;
-    background: $bg-color;
-  }
-  // .menu
-  .menu__list {
-    position: fixed;
-    background: $bg-color;
-    left: 0;
-    top: 0;
-    //height: 100vh;
-    width: 100%;
-    display: none;
-
-    &.active {
-      display: flex;
-      left: 0;
-      top: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-
-      width: 305px;
-      flex-direction: column;
-      pointer-events: all;
-      justify-content: center;
-      align-items: center;
-      z-index: 200;
-      animation: fade 0.1s linear;
-      border-radius: 30px;
-      border: 1px solid $main-blue;
-      padding: 15px 29px 29px 29px;
-    }
-  }
-
-  // .burger
-  .menu__burger {
-    display: block;
-    position: relative;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    background-color: #123e66;
-    z-index: 500;
-    cursor: pointer;
-    margin: 0 auto;
-    margin-top: 12px;
-    margin-bottom: 13px;
-    outline: none;
-
-    /*   &.active-burger {
-      &:before {
-        background: $burgerActiveColor;
-        transform: rotate(45deg);
-        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
-        top: 8px;
-      }
-
-      &:after {
-        background: $burgerActiveColor;
-        transform: rotate(-45deg);
-        bottom: 10px;
-        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
-      }
-
-      & span {
-        transform: scale(0);
-      }
-    } */
-
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      height: 1px;
-      width: 18px;
-      background: $burgerColor;
-      transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
-    }
-
-    &:before {
-      top: 15px;
-      right: 6px;
-    }
-
-    &::after {
-      bottom: 8px;
-      right: 6px;
-    }
+  &__back {
+    width: 143px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: auto;
 
     span {
-      position: absolute;
-      top: 9px;
-      right: 6px;
-      width: 18px;
-      background: $burgerColor;
-      height: 1px;
-      transform: scale(1);
-      transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+      margin-bottom: 10px;
+    }
+
+    svg path {
+      transition: all 0.4s;
     }
   }
 
-  // .menu__item
-  .menu__list-item {
-    width: 100%;
-    font-weight: 400;
-    margin-top: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #fff;
-    transition: all 0.4s ease;
+  &__back:hover,
+  &__back:focus {
+    cursor: pointer;
+    svg path {
+      stroke: $main-blue;
+    }
   }
 
-  .menu__list-item--mobile {
-    display: block;
+  .menu__burger {
+    display: none;
+    cursor: pointer;
     border: none;
-    margin-top: 30px;
-    a {
-      display: block;
-      line-height: 26px;
+    background-color: transparent;
+  }
+
+  // Burger menu styles
+  @media screen and (max-width: 600px) {
+    .menu {
+      margin-top: 0;
+      padding-bottom: 0;
+      width: 100%;
+      background: $bg-color;
     }
-  }
+    // .menu
+    .menu__list {
+      position: fixed;
+      background: $bg-color;
+      left: 0;
+      top: 0;
+      //height: 100vh;
+      width: 100%;
+      display: none;
 
-  .menu__list-item.active {
-    border-bottom: 1px solid $main-blue;
-  }
+      &.active {
+        display: flex;
+        left: 0;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
 
-  // .menu__link
-  .menu__item-link {
-    color: white;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    transition: all 0.4s ease;
-  }
-  .menu__item-link:hover {
-    color: $main-blue;
+        width: 305px;
+        flex-direction: column;
+        pointer-events: all;
+        justify-content: center;
+        align-items: center;
+        z-index: 200;
+        animation: fade 0.1s linear;
+        border-radius: 30px;
+        border: 1px solid $main-blue;
+        padding: 15px 29px 29px 29px;
+      }
+    }
+
+    // .burger
+    .menu__burger {
+      display: block;
+      position: relative;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      background-color: #123e66;
+      z-index: 500;
+      cursor: pointer;
+      margin: 0 auto;
+      margin-top: 12px;
+      margin-bottom: 13px;
+      outline: none;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 18px;
+        background: $burgerColor;
+        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+      }
+
+      &:before {
+        top: 15px;
+        right: 6px;
+      }
+
+      &::after {
+        bottom: 8px;
+        right: 6px;
+      }
+
+      span {
+        position: absolute;
+        top: 9px;
+        right: 6px;
+        width: 18px;
+        background: $burgerColor;
+        height: 1px;
+        transform: scale(1);
+        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+      }
+    }
+
+    // .menu__item
+    .menu__list-item {
+      width: 100%;
+      font-weight: 400;
+      margin-top: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #fff;
+      transition: all 0.4s ease;
+    }
+
+    .menu__list-item--mobile {
+      display: block;
+      border: none;
+      margin-top: 30px;
+      a {
+        display: block;
+        line-height: 26px;
+      }
+    }
+
+    .menu__list-item--active {
+      border-bottom: 1px solid $main-blue;
+    }
+
+    // .menu__link
+    .menu__item-link {
+      color: white;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      transition: all 0.4s ease;
+    }
+    .menu__item-link:hover {
+      color: $main-blue;
+    }
+
+    .menu__back {
+      display: none;
+    }
   }
 }

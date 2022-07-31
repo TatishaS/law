@@ -43,8 +43,10 @@
     height: auto;
   }
 
-  .steps__inner {
+  .steps__inner,
+  .header__footer {
     max-width: 910px;
+    margin: 0auto;
   }
 
   .offer__inner {
@@ -139,7 +141,12 @@
   .steps__list-item {
     width: 100%;
     flex-direction: column;
+    margin-bottom: 20px;
   }
+  .steps__list-item:not(:first-child) {
+    margin-bottom: 20px;
+  }
+
   .steps__list-item--left,
   .steps__list-item--right {
     width: 100%;
@@ -161,6 +168,7 @@
   .steps__item-title {
     font-size: 28px;
     line-height: 32px;
+    margin-bottom: 20px;
   }
 
   .steps__text {

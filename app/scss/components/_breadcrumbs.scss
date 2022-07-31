@@ -1,0 +1,33 @@
+.breadcrumbs {
+  margin-bottom: 25px;
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__link {
+    display: block;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    transition: all 0.4 ease;
+    padding-right: 18px;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: #194258;
+      top: 50%;
+      right: 4px;
+      transform: translateY(-50%);
+    }
+  }
+  &__link:hover,
+  &__link:active {
+    color: $main-blue;
+  }
+}
