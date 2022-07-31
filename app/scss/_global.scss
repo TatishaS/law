@@ -57,6 +57,16 @@ body {
   position: absolute;
   bottom: -45px;
   right: 0;
+
+  @media (max-width: 768px) {
+    bottom: -110px;
+  }
+}
+
+.steps__slider .slick-next {
+  @media (max-width: 760px) {
+    bottom: 0;
+  }
 }
 
 .slick-next:hover,
@@ -69,6 +79,10 @@ body {
 
 .cases .slick-next {
   bottom: -160px;
+
+  @media (max-width: 640px) {
+    bottom: -90px;
+  }
 }
 
 .offer .fancybox-content {

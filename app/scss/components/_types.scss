@@ -15,6 +15,9 @@
     max-width: 440px;
     margin-bottom: 65px;
   }
+  &__subtitle--mobile {
+    display: none;
+  }
   &__list {
     width: 50%;
   }
@@ -37,5 +40,12 @@
     color: $main-blue;
 
     border-bottom: 2px solid $main-blue;
+  }
+
+  &__btn--desktop {
+    display: block;
+  }
+  &__btn--mobile {
+    display: none;
   }
 }

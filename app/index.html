@@ -18,9 +18,6 @@
     <header class="header">
       <div class="container">
         <nav class="header__menu menu">
-          <button class="menu__btn">
-            <span></span>
-          </button>
           <ul class="menu__list">
             <li class="menu__list-item">
               <a class="menu__list-link" href="#">Услуги</a>
@@ -41,8 +38,11 @@
               <a class="menu__list-link" href="#">Контакты</a>
             </li>
           </ul>
+          <button class="menu__burger">
+            <span></span>
+          </button>
           <a class="header__logo" href="#">
-            <img src="./images/logo.png" alt="logo" width="457" height="32" />
+            <img src="./images/logo.png" alt="logo" />
           </a>
         </nav>
       </div>
@@ -95,7 +95,9 @@
                 своего вопроса, посмотрите на видео, кто я такой и чем могу быть
                 полезен в вашем деле
               </p>
-              <button class="about__btn btn">Оставить заявку</button>
+              <button class="about__btn about__btn--desktop btn">
+                Оставить заявку
+              </button>
             </div>
             <div class="about__video">
               <a
@@ -110,6 +112,9 @@
                 />
               </a>
             </div>
+            <button class="about__btn about__btn--mobile btn">
+              Оставить заявку
+            </button>
           </div>
         </div>
       </section>
@@ -159,8 +164,11 @@
                 В любом из существующих видов права каждая проблема решается
                 лично мной в индивидуальном порядке с гарантиями
               </p>
-              <button class="types__btn btn">Оставить заявку</button>
+              <button class="types__btn types__btn--desktop btn">
+                Оставить заявку
+              </button>
             </div>
+            <h6 class="types__subtitle--mobile">Виды права</h6>
             <ul class="types__list">
               <li class="types__list-item types__list-item--active">
                 <a href="#" class="types__list-link">Военное право</a>
@@ -196,6 +204,9 @@
                 <a href="#" class="types__list-link">Административное право</a>
               </li>
             </ul>
+            <button class="types__btn types__btn--mobile btn">
+              Оставить заявку
+            </button>
           </div>
         </div>
       </section>
@@ -282,15 +293,16 @@
         </div>
       </section>
       <section class="steps">
-        <div class="container">
-          <h2 class="steps__title title">
-            Как происходит
-            <span class="steps__title-blue title__blue">сотрудничество</span>
-          </h2>
-        </div>
+        <div class="container"></div>
         <div class="steps__inner">
           <div class="steps__slider">
             <div class="steps__slide">
+              <h2 class="steps__title title">
+                Как происходит
+                <span class="steps__title-blue title__blue"
+                  >сотрудничество</span
+                >
+              </h2>
               <div class="steps__list-item steps__list-item--left">
                 <span class="steps__number">1</span>
                 <div class="steps__info">

@@ -34,7 +34,7 @@ $(function () {
       '<button type="button" class="slick-next"><svg width="131" height="27" viewBox="0 0 133 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.1625H131M131 14.1625L113.378 1M131 14.1625L113.378 28" stroke="white" stroke-width="2"/></svg></button>',
     responsive: [
       {
-        breakpoint: 640,
+        breakpoint: 761,
         settings: 'unslick',
       },
     ],
@@ -81,4 +81,31 @@ $(function () {
       target;
     document.head.appendChild(script);
   }
+
+  function burgerMenu() {
+    const burger = document.querySelector('.menu__burger');
+    const menu = document.querySelector('.menu__list');
+    const body = document.querySelector('body');
+    burger.addEventListener('click', () => {
+      if (!menu.classList.contains('active')) {
+        menu.classList.add('active');
+        burger.classList.add('active-burger');
+        body.classList.add('locked');
+      } else {
+        menu.classList.remove('active');
+        burger.classList.remove('active-burger');
+        body.classList.remove('locked');
+      }
+    });
+    // Брейкпойнт, на котором появляется бургер-меню
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 600) {
+        menu.classList.remove('active');
+        burger.classList.remove('active-burger');
+        body.classList.remove('locked');
+      }
+    });
+  }
+
+  burgerMenu();
 });
