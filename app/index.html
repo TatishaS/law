@@ -101,7 +101,7 @@
                 своего вопроса, посмотрите на видео, кто я такой и чем могу быть
                 полезен в вашем деле
               </p>
-              <button class="about__btn about__btn--desktop btn">
+              <button class="about__btn trigger__btn about__btn--desktop btn">
                 Оставить заявку
               </button>
             </div>
@@ -118,7 +118,7 @@
                 />
               </a>
             </div>
-            <button class="about__btn about__btn--mobile btn">
+            <button class="about__btn trigger__btn about__btn--mobile btn">
               Оставить заявку
             </button>
           </div>
@@ -588,7 +588,6 @@
                   class="offer__form-input"
                   id="phone"
                   type="tel"
-                  pattern="[0-9]"
                   required=""
                 />
                 <button class="offer__form-btn btn" type="submit">
@@ -640,18 +639,23 @@
 
     <div class="overlay"></div>
 
-    <!-- Modal-->
-    <!--     <div class="modal__wrapper">
-      <div class="modal">
-        <div class="modal__close">
-          <img src="'./images/close.svg" alt="close" width="10" height="10" />
-        </div>
-        <div class="modal__title"><span>Связаться с нами:</span></div>
-        <div class="modal__body"></div>
-      </div>
-    </div> -->
-
-    <!-- Modal end-->
+    <div class="modal">
+      <div class="modal__close"></div>
+      <form class="modal__form">
+        <label class="modal__form-label" for="name">Имя</label>
+        <input type="text" class="modal__form-input" id="name" required />
+        <label class="modal__form-label" for="phone">Номеp телефона</label>
+        <input class="modal__form-input" id="phone" type="tel" required="" />
+        <button type="submit" class="modal__form-btn trigger__success-btn btn">
+          Оставить заявку
+        </button>
+      </form>
+    </div>
+    <div class="modal modal__success">
+      <div class="modal__close modal__success-close"></div>
+      <h6 class="modal__msg">Успешно!</h6>
+      <img src="./images/checked.svg" alt="success" class="modal__img" />
+    </div>
     <script src="js/main.min.js"></script>
   </body>
 </html>

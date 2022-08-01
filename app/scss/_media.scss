@@ -259,6 +259,32 @@
     font-size: 36px;
     line-height: 38px;
   }
+
+  .modal {
+    width: 305px;
+    height: 267px;
+    padding: 30px;
+  }
+
+  .modal__form-input {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .modal__form-btn {
+    margin-top: 0;
+  }
+
+  .modal__msg {
+    font-size: 30px;
+    line-height: 37px;
+    margin-bottom: 40px;
+  }
+
+  .modal__img {
+    width: 127px;
+    height: 127px;
+  }
   .header__logo img {
     width: 312px;
     height: 27px;
