@@ -12,7 +12,7 @@
     font-size: 16px;
     line-height: 20px;
     transition: all 0.4 ease;
-    padding-right: 18px;
+    padding-right: 28px;
 
     &::after {
       position: absolute;
@@ -22,12 +22,45 @@
       border-radius: 50%;
       background-color: #194258;
       top: 50%;
-      right: 4px;
+      right: 8px;
       transform: translateY(-50%);
     }
   }
-  &__link:hover,
-  &__link:active {
-    color: $main-blue;
+  &__link.active {
+    &::after {
+      background-color: $main-blue;
+    }
+  }
+
+  & .drop-container {
+    position: relative;
+    &:hover .drop {
+      display: block;
+    }
+    .drop {
+      background-color: $bg-color;
+      width: 255px;
+      display: none;
+      position: absolute;
+      top: 20px;
+      left: -10px;
+
+      ul {
+        animation: fade 0.1s linear;
+        border-radius: 20px;
+        border: 1px solid $main-blue;
+        padding: 3px;
+      }
+      a {
+        font-size: 16px;
+        line-height: 20px;
+        display: block;
+        padding: 3px 10px;
+      }
+      a:hover {
+        color: $main-blue;
+        text-decoration: underline;
+      }
+    }
   }
 }

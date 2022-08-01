@@ -465,11 +465,21 @@
   }
 }
 
+@media (max-width: 600px) {
+  .menu {
+    margin-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    background: $bg-color;
+  }
+}
+
 @media (max-width: 540px) {
   body {
     font-size: 16px;
     line-height: 20px;
   }
+
   .container {
     max-width: 490px;
   }
