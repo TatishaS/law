@@ -161,6 +161,7 @@ $(function () {
   // ВТОРОЙ аргумент - класс самого модального окна.
   // ТРЕТИЙ аргумент - класс кнопки, при клике на которую будет закрываться модальное окно.
   bindModal('.trigger__btn', '.modal', '.modal__close');
+  bindModal('.trigger__btn--mobile', '.modal', '.modal__close');
   bindModal(
     '.trigger__success-btn',
     '.modal__success',
