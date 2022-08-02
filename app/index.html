@@ -104,7 +104,7 @@
                 Оставить заявку
               </button>
             </div>
-            <div class="about__video">
+            <!--             <div class="about__video">
               <a
                 class="about__video-link"
                 data-fancybox="video"
@@ -116,7 +116,17 @@
                   alt="play video"
                 />
               </a>
-            </div>
+            </div> -->
+            <iframe
+              class="about__video"
+              width="546"
+              height="364"
+              src="https://www.youtube.com/embed/lyh2kAjcmSY"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
 
             <button
               class="about__btn trigger__btn--mobile about__btn--mobile btn"
@@ -151,6 +161,7 @@
                 type="text"
                 class="checklist__form-input"
                 placeholder="check@gmail.com"
+                autocomplete="off"
               />
               <button class="checklist__btn btn" type="submit">Получить</button>
             </form>
@@ -581,6 +592,7 @@
                   type="text"
                   class="offer__form-input"
                   id="name"
+                  autocomplete="off"
                   required
                 />
                 <label class="offer__form-label" for="phone"
@@ -590,6 +602,7 @@
                   class="offer__form-input"
                   id="phone"
                   type="tel"
+                  autocomplete="off"
                   required=""
                 />
                 <button class="offer__form-btn btn" type="submit">
@@ -645,9 +658,21 @@
       <div class="modal__close"></div>
       <form class="modal__form">
         <label class="modal__form-label" for="name">Имя</label>
-        <input type="text" class="modal__form-input" id="name" required />
+        <input
+          type="text"
+          class="modal__form-input"
+          autocomplete="off"
+          id="name"
+          required
+        />
         <label class="modal__form-label" for="phone">Номеp телефона</label>
-        <input class="modal__form-input" id="phone" type="tel" required="" />
+        <input
+          class="modal__form-input"
+          id="phone"
+          type="tel"
+          autocomplete="off"
+          required
+        />
         <button type="submit" class="modal__form-btn trigger__success-btn btn">
           Оставить заявку
         </button>
