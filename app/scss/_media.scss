@@ -253,7 +253,8 @@
     padding: 15px 10px;
   }
 
-  .container {
+  .container,
+  .steps__inner {
     max-width: 590px;
   }
   .title {
@@ -320,6 +321,7 @@
   .hero__contact {
     order: 1;
     width: 100%;
+    padding-top: 15px;
     padding-bottom: 15px;
   }
   .hero__contact img {
@@ -366,6 +368,10 @@
     height: 87px;
   }
 
+  .checklist {
+    padding-bottom: 55px;
+  }
+
   .checklist__title {
     margin-top: 60px;
     margin-bottom: 20px;
@@ -377,11 +383,12 @@
 
   .checklist__text {
     max-width: 100%;
-    margin-bottom: 35px;
+    width: 100%;
+    margin-bottom: 0;
   }
   .checklist__name {
     max-width: 100%;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 20px;
   }
 
@@ -436,6 +443,7 @@
   .types__btn--mobile {
     display: block;
   }
+
   .cases__items {
     flex-direction: column;
   }
@@ -481,17 +489,40 @@
     margin: 0 auto;
   }
 
+  .biography {
+    padding-bottom: 50px;
+  }
   .biography__slider {
-    margin-bottom: 145px;
+    margin-bottom: 160px;
   }
 
   .biography__slide-text {
     max-width: 100%;
-    font-size: 30px;
-    line-height: 34px;
+    font-size: 20px;
+    line-height: 24px;
     margin-bottom: 0;
   }
 
+  .biography__slide-btn {
+    padding: 11px 10px;
+  }
+
+  .steps {
+    margin-top: 0;
+    padding-bottom: 30px;
+  }
+
+  .steps__item-title {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+  .cases {
+    margin-top: 20px;
+  }
+  .cases__title {
+    margin-bottom: 0;
+  }
   .cases__slider {
     margin-bottom: 140px;
   }
@@ -521,10 +552,34 @@
 
   .cases__btn {
     width: 100%;
+    padding: 11px 10px;
   }
 
   .offer {
-    margin-top: 70px;
+    margin-top: 30px;
+    padding-bottom: 0;
+  }
+
+  .offer__text {
+    margin-bottom: 45px;
+  }
+  .offer__info {
+    margin-bottom: 60px;
+  }
+
+  .offer__name,
+  .offer__contact {
+    font-size: 16px;
+    line-height: 23px;
+    padding-bottom: 0;
+  }
+
+  .offer__form-btn {
+    margin-top: 40px;
+  }
+
+  .offer__title {
+    margin-bottom: 20px;
   }
 
   .offer__contact img {
@@ -536,6 +591,20 @@
     margin-bottom: 20px;
     font-size: 20px;
     line-height: 24px;
+  }
+  .footer {
+    padding: 25px 0;
+  }
+
+  .footer__link {
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 23px;
+  }
+  .footer__logo-img {
+    width: 133px;
+    height: 11px;
+    margin-top: 10px;
   }
 }
 
@@ -554,7 +623,8 @@
     line-height: 20px;
   }
 
-  .container {
+  .container,
+  .steps__inner {
     max-width: 490px;
   }
   .btn {
@@ -583,14 +653,9 @@
   }
 }
 
-@media (max-width: 376px) {
-  .container {
-    max-width: 327px;
-  }
-
-  .steps__item-title {
-    font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 20px;
+@media (max-width: 420px) {
+  .container,
+  .steps__inner {
+    max-width: 328px;
   }
 }
