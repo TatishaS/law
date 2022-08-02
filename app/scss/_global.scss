@@ -17,6 +17,11 @@ body {
 .main {
   flex: 1 0 auto;
 }
+
+.main__body--404 {
+  height: 100vh;
+}
+
 .footer {
   flex: 0 0 auto;
 }
@@ -42,6 +47,8 @@ body {
 }
 
 .slick-arrow {
+  position: absolute;
+  bottom: -45px;
   background-color: transparent;
   outline: none;
   border: none;
@@ -49,44 +56,59 @@ body {
   svg path {
     transition: all 0.4s;
   }
-}
-
-.slick-next {
-  position: absolute;
-  bottom: -45px;
-  right: 0;
 
   @media (max-width: 768px) {
     bottom: -110px;
   }
 }
 
-.steps__slider .slick-next {
+.slick-next {
+  right: 0;
+}
+
+.slick-prev {
+  right: 240px;
+
+  @media (max-width: 1150px) {
+    right: 150px;
+  }
+  @media (max-width: 640px) {
+    left: 0;
+  }
+}
+
+.steps__slider .slick-next,
+.steps__slider .slick-prev {
   @media (max-width: 760px) {
     bottom: 0;
   }
 }
 
-.situations__inner .slick-next {
+.situations__inner .slick-arrow,
+.steps__slider .slick-arrow {
   @media (max-width: 760px) {
     bottom: -50px;
   }
 }
 
-.slick-next:hover,
-.slick-next:focus {
+.slick-arrow:hover {
   cursor: pointer;
   svg path {
     stroke: $main-blue;
   }
 }
 
-.cases .slick-next {
+.cases .slick-arrow {
   bottom: -160px;
 
   @media (max-width: 640px) {
     bottom: -90px;
   }
+}
+
+.slick-disabled {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .offer .fancybox-content {

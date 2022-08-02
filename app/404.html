@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сапрыкин и точка .</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.min.css" />
+  </head>
+
+  <body class="main__body main__body--404">
+    <header class="header">
+      <div class="container">
+        <div class="overlay"></div>
+        <nav class="header__menu menu">
+          <ul class="menu__list">
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#">Услуги</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#">Мои принципы</a>
+            </li>
+            <li class="menu__list-item active">
+              <a class="menu__list-link" href="#">Биография</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#">Сотрудничество</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#">История побед</a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#">Контакты</a>
+            </li>
+            <li class="menu__list-item menu__list-item--mobile">
+              <a href="mailto:lowyer@esaprykin.ru">lowyer@esaprykin.ru</a>
+
+              <a href="tel:+79282055157">8-928-205-51-57</a>
+            </li>
+          </ul>
+          <button class="menu__burger">
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main main--404">
+      <div class="container">
+        <section class="notfound">
+          <span class="notfound__title title">404</span>
+          <h1 class="notfound__title title">Ничего не нашлось</h1>
+          <p class="notfound__text">Попробуйте еще раз</p>
+        </section>
+      </div>
+    </main>
+
+    <div class="overlay"></div>
+
+    <div class="modal">
+      <div class="modal__close"></div>
+      <form class="modal__form">
+        <label class="modal__form-label" for="name">Имя</label>
+        <input type="text" class="modal__form-input" id="name" required />
+        <label class="modal__form-label" for="phone">Номеp телефона</label>
+        <input class="modal__form-input" id="phone" type="tel" required="" />
+        <button type="submit" class="modal__form-btn trigger__success-btn btn">
+          Оставить заявку
+        </button>
+      </form>
+    </div>
+    <div class="modal modal__success">
+      <div class="modal__close modal__success-close"></div>
+      <h6 class="modal__msg">Успешно!</h6>
+      <img src="./images/checked.svg" alt="success" class="modal__img" />
+    </div>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
