@@ -125,6 +125,13 @@ $(function () {
         body.classList.remove('locked');
       }
     });
+
+    overlay.addEventListener('click', function () {
+      menu.classList.remove('active');
+      burger.classList.remove('active-burger');
+      body.classList.remove('locked');
+      overlay.classList.remove('overlay--show');
+    });
   }
 
   burgerMenu();
@@ -153,6 +160,12 @@ $(function () {
         modal.style.display = 'none';
         overlay.classList.remove('overlay--show');
       }
+    });
+
+    overlay.addEventListener('click', function () {
+      console.log('Закрытие модального окна');
+      overlay.classList.remove('overlay--show');
+      modal.style.display = 'none';
     });
   }
 
