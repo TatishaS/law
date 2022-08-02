@@ -11,6 +11,7 @@ $(function () {
   $('.biography__slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
+    infinite: false,
     prevArrow:
       '<button class="slick-prev"><svg width="133" height="29" viewBox="0 0 133 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M133 14.1625H2M2 14.1625L19.6218 1M2 14.1625L19.6218 28" stroke="white" stroke-width="2"/></svg></button>',
     nextArrow:
@@ -21,6 +22,7 @@ $(function () {
     mobileFirst: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    infinite: false,
     prevArrow:
       '<button class="slick-prev"><svg width="133" height="29" viewBox="0 0 133 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M133 14.1625H2M2 14.1625L19.6218 1M2 14.1625L19.6218 28" stroke="white" stroke-width="2"/></svg></button>',
     nextArrow:
@@ -47,6 +49,7 @@ $(function () {
     mobileFirst: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    infinite: false,
     prevArrow:
       '<button class="slick-prev"><svg width="133" height="29" viewBox="0 0 133 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M133 14.1625H2M2 14.1625L19.6218 1M2 14.1625L19.6218 28" stroke="white" stroke-width="2"/></svg></button>',
     nextArrow:
