@@ -7,7 +7,7 @@
   background: #fff;
   border: 2px solid #4eb2ea;
   border-radius: 30px;
-  padding: 48px;
+  padding: 48px 27px 48px 48px;
 
   width: 477px;
   min-height: 402px;
@@ -47,19 +47,19 @@
     background-color: transparent;
     outline: none;
     border: none;
-    width: 100%;
+    width: calc(100% - 25px);
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
     border-bottom: 1px solid #0a1a23;
     padding: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 
   &__form-btn {
     display: inline-block;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 45px;
   }
 
   &__msg {
