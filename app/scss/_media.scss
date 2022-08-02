@@ -267,6 +267,13 @@
     padding: 30px;
   }
 
+  .modal__close {
+    width: 37px;
+    height: 37px;
+    top: -15px;
+    right: -15px;
+  }
+
   .modal__form-input {
     font-size: 16px;
     line-height: 20px;
@@ -302,6 +309,9 @@
   .header__footer {
     display: none;
   }
+  .hero {
+    margin-bottom: 95px;
+  }
 
   .hero__inner {
     flex-direction: column;
@@ -310,6 +320,7 @@
   .hero__contact {
     order: 1;
     width: 100%;
+    padding-bottom: 15px;
   }
   .hero__contact img {
     margin: 0 auto;
@@ -322,13 +333,41 @@
     order: 2;
   }
 
+  .hero__name {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .hero__title {
+    margin-bottom: 30px;
+  }
+
+  .hero__text {
+    margin-bottom: 25px;
+  }
+
+  .about__title {
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+  .about__text {
+    margin-bottom: 27px;
+  }
+
   .about__video {
-    width: 100%;
+    width: 305px;
     height: 203px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  .about__video-buttonimg {
+    width: 87px;
+    height: 87px;
   }
 
   .checklist__title {
-    margin-top: 50px;
+    margin-top: 60px;
     margin-bottom: 20px;
   }
 
@@ -549,28 +588,6 @@
     max-width: 327px;
   }
 
-  .hero {
-    margin-bottom: 85px;
-  }
-
-  .hero__name {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-  }
-
-  .hero__title {
-    margin-bottom: 35px;
-  }
-
-  .hero__text {
-    margin-bottom: 25px;
-  }
-
-  .about__title {
-    margin-top: 25px;
-    margin-bottom: 20px;
-  }
   .steps__item-title {
     font-size: 20px;
     line-height: 24px;
