@@ -513,14 +513,24 @@
 
   .steps {
     margin-top: 0;
-    padding-bottom: 60px;
+    padding-bottom: 45px;
   }
-
+  .steps__title {
+    margin-bottom: 30px;
+  }
+  .steps__number {
+    margin-bottom: 10px;
+  }
   .steps__item-title {
     font-size: 20px;
     line-height: 24px;
     margin-bottom: 20px;
   }
+
+  .steps__text {
+    margin-bottom: 20px;
+  }
+
   .cases {
     margin-top: 20px;
   }

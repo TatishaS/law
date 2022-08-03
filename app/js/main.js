@@ -1,4 +1,41 @@
 $(function () {
+  /* Burger menu */
+  function burgerMenu() {
+    const burger = document.querySelector('.menu__burger');
+    const menu = document.querySelector('.menu__list');
+    const overlay = document.querySelector('.overlay');
+    const body = document.querySelector('body');
+    burger.addEventListener('click', () => {
+      if (!menu.classList.contains('active')) {
+        menu.classList.add('active');
+        burger.classList.add('active-burger');
+        body.classList.add('locked');
+        overlay.classList.add('overlay--show');
+      } else {
+        menu.classList.remove('active');
+        burger.classList.remove('active-burger');
+        body.classList.remove('locked');
+        overlay.classList.remove('overlay--show');
+      }
+    });
+    // Брейкпойнт, на котором появляется бургер-меню
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 600) {
+        menu.classList.remove('active');
+        burger.classList.remove('active-burger');
+        body.classList.remove('locked');
+      }
+    });
+
+    overlay.addEventListener('click', function () {
+      menu.classList.remove('active');
+      burger.classList.remove('active-burger');
+      body.classList.remove('locked');
+      overlay.classList.remove('overlay--show');
+    });
+  }
+  burgerMenu();
+
   /* Video modal */
   $('[data-fancybox="video"]').fancybox({
     buttons: ['zoom', 'fullScreen', 'close'],
@@ -24,9 +61,9 @@ $(function () {
     slidesToScroll: 1,
     infinite: false,
     prevArrow:
-      '<button class="slick-prev"><svg width="133" height="29" viewBox="0 0 133 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M133 14.1625H2M2 14.1625L19.6218 1M2 14.1625L19.6218 28" stroke="white" stroke-width="2"/></svg></button>',
+      '<button class="slick-prev steps__btn-scroll-to"><svg width="133" height="29" viewBox="0 0 133 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M133 14.1625H2M2 14.1625L19.6218 1M2 14.1625L19.6218 28" stroke="white" stroke-width="2"/></svg></button>',
     nextArrow:
-      '<button type="button" class="slick-next"><svg width="131" height="27" viewBox="0 0 133 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.1625H131M131 14.1625L113.378 1M131 14.1625L113.378 28" stroke="white" stroke-width="2"/></svg></button>',
+      '<button type="button" class="slick-next steps__btn-scroll-to"><svg width="131" height="27" viewBox="0 0 133 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.1625H131M131 14.1625L113.378 1M131 14.1625L113.378 28" stroke="white" stroke-width="2"/></svg></button>',
     responsive: [
       {
         breakpoint: 761,
@@ -67,7 +104,6 @@ $(function () {
   });
 
   /* Map modal */
-
   var init = false;
 
   $('.fancybox-map').fancybox({
@@ -97,48 +133,8 @@ $(function () {
     document.head.appendChild(script);
   }
 
-  /* Burger menu */
+  /* Модальное окно */
 
-  function burgerMenu() {
-    const burger = document.querySelector('.menu__burger');
-    const menu = document.querySelector('.menu__list');
-    const overlay = document.querySelector('.overlay');
-    const body = document.querySelector('body');
-    burger.addEventListener('click', () => {
-      if (!menu.classList.contains('active')) {
-        menu.classList.add('active');
-        burger.classList.add('active-burger');
-        body.classList.add('locked');
-        overlay.classList.add('overlay--show');
-      } else {
-        menu.classList.remove('active');
-        burger.classList.remove('active-burger');
-        body.classList.remove('locked');
-        overlay.classList.remove('overlay--show');
-      }
-    });
-    // Брейкпойнт, на котором появляется бургер-меню
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 600) {
-        menu.classList.remove('active');
-        burger.classList.remove('active-burger');
-        body.classList.remove('locked');
-      }
-    });
-
-    overlay.addEventListener('click', function () {
-      menu.classList.remove('active');
-      burger.classList.remove('active-burger');
-      body.classList.remove('locked');
-      overlay.classList.remove('overlay--show');
-    });
-  }
-
-  burgerMenu();
-
-  /* Form modal */
-
-  // Модальное окно
   function bindModal(trigger, modal, close) {
     (trigger = document.querySelector(trigger)),
       (modal = document.querySelector(modal)),
@@ -179,4 +175,25 @@ $(function () {
     '.modal__success',
     '.modal__success-close'
   );
+
+  /* Cкролл до начала блока steps */
+  function scrollToTop() {
+    const btnsScrollTo = document.querySelectorAll('.steps__btn-scroll-to');
+    const sectionSteps = document.querySelector('#section-steps');
+
+    btnsScrollTo.forEach(s => {
+      addEventListener('click', e => {
+        console.log('Был клик');
+        const secStepsCoords = sectionSteps.getBoundingClientRect();
+
+        window.scrollTo({
+          left: secStepsCoords.left + window.pageXOffset,
+          top: secStepsCoords.top + window.pageYOffset,
+          behavior: 'smooth',
+        });
+      });
+    });
+  }
+
+  scrollToTop();
 });

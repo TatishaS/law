@@ -84,10 +84,15 @@ body {
   }
 }
 
-.situations__inner .slick-arrow,
-.steps__slider .slick-arrow {
+.situations__inner .slick-arrow {
   @media (max-width: 760px) {
     bottom: -50px;
+  }
+}
+
+.steps__slider .slick-arrow {
+  @media (max-width: 760px) {
+    bottom: -23px;
   }
 }
 
