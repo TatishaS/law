@@ -21,25 +21,25 @@
         <nav class="header__menu menu menu--inner">
           <ul class="menu__list">
             <li class="menu__list-item active">
-              <a class="menu__list-link" href="#">Услуги</a>
+              <a class="menu__list-link" href="#section-situations">Услуги</a>
             </li>
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">Мои принципы</a>
+              <a class="menu__list-link" href="#section-advantages">Мои принципы</a>
             </li>
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">Биография</a>
+              <a class="menu__list-link" href="index.html#section-biography">Биография</a>
             </li>
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">Сотрудничество</a>
+              <a class="menu__list-link" href="index.html#section-steps">Сотрудничество</a>
             </li>
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">История побед</a>
+              <a class="menu__list-link" href="#section-cases">История побед</a>
             </li>
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">Контакты</a>
+              <a class="menu__list-link" href="#section-offer">Контакты</a>
             </li>
             <li class="menu__list-item menu__list-item--mobile">
-              <a href="mailto:lowyer@esaprykin.ru">lowyer@esaprykin.ru</a>
+              <a href="mailto:lawyer@esaprykin.ru">lawyer@esaprykin.ru</a>
 
               <a href="tel:+79282055157">8-928-205-51-57</a>
             </li>
@@ -142,7 +142,7 @@
                 <li class="situations__list-item col-item">Не хочет служить по состоянию здоровья</li></ul>
         </div>
       </section>
-      <div class="situations">
+      <div class="situations" id="section-situations">
         <div class="container">
             <h2 class="situations__title">Предоставляемые услуги</h2>
             <div class="situations__inner">
@@ -167,7 +167,7 @@
             </div>
         </div>
       </div>
-      <section class="cases cases--inner">
+      <section class="cases cases--inner" id="section-cases">
         <div class="container">
           <h2 class="cases__title title">
             Последние <span class="cases__title-blue title__blue">выигранные дела</span>
@@ -267,7 +267,7 @@
           </button>
         </div>
       </section>
-      <section class="advantages advantages--inner">
+      <section class="advantages advantages--inner" id="section-advantages">
         <div class="container">
           <div class="advantages__inner">
             <div class="advantages__info">
@@ -275,10 +275,19 @@
                 <span class="advantages__title-blue title__blue"> со мной</span>
               </h2>
               <div class="advantages__photo advantages__photo--mobile">
-                <img
+                <picture>
+                  <source
+                    type="image/webp"
+                   
+                    srcset="./images/photos/photo-advantages-mobile.webp"
+                  />
+  
+                  <img
                   src="./images/photos/photo-advantages-mobile.jpg"
                   alt="Фото Евгения"
                 />
+                </picture>
+
               </div>
               <div class="advantages__list-wrapper">
                 <ul class="advantages__list-col">
@@ -310,15 +319,25 @@
               </div>
             </div>
             <div class="advantages__photo advantages__photo--desktop">
-              <img
+              <picture>
+                <source
+                  type="image/webp"
+                  
+                  srcset="./images/photos/photo-advantages-desktop.webp"
+                />
+
+
+                <img
                 src="./images/photos/photo-advantages-desktop.jpg"
                 alt="Фото Евгения"
               />
+              </picture>
+
             </div>
           </div>
         </div>
       </section>
-      <section class="offer">
+      <section class="offer" id="section-offer">
         <div class="container">
           <div class="offer__inner">
             <div class="offer__info">
@@ -358,7 +377,12 @@
               </form>
             </div>
             <div class="offer__contact">
-              <picture>
+              <picture class="offer__img">
+                <source
+                type="image/webp"
+                media="(max-width: 540px)"
+                srcset="./images/photos/photo-offer-mobile.webp"
+              />
                 <source
                   media="(max-width: 540px)"
                   srcset="./images/photos/photo-offer-mobile.jpg"
@@ -367,13 +391,13 @@
                 <img
                   src="./images/photos/photo-offer-desktop.jpg"
                   alt="Фото Евгения"
-                  class="offer__img"
+                  
                 />
               </picture>
 
               <p class="offer__name">Евгений Сапрыкин</p>
-              <a class="offer__contact" href="mailto:lowyer@esaprykin.ru"
-                >lowyer@esaprykin.ru</a
+              <a class="offer__contact" href="mailto:lawyer@esaprykin.ru"
+                >lawyer@esaprykin.ru</a
               >
               <a class="offer__contact" href="tel:+79282055157"
                 >8-928-205-51-57</a

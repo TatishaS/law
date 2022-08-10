@@ -39,7 +39,7 @@
               <a class="menu__list-link" href="#">Контакты</a>
             </li>
             <li class="menu__list-item menu__list-item--mobile">
-              <a href="mailto:lowyer@esaprykin.ru">lowyer@esaprykin.ru</a>
+              <a href="mailto:lawyer@esaprykin.ru">lawyer@esaprykin.ru</a>
 
               <a href="tel:+79282055157">8-928-205-51-57</a>
             </li>
@@ -70,11 +70,17 @@
               <button class="hero__btn btn">Оставить заявку</button>
             </div>
             <div class="hero__contact">
-              <img
-                class="hero__photo"
-                src="./images/photos/photo-main.jpg"
-                alt="Фото Евгения Сапрыкина"
-              />
+              <picture class="hero__photo">
+                <source
+                  type="image/webp"
+                  srcset="./images/photos/photo-main.webp"
+                />
+                <img
+                  src="./images/photos/photo-main.jpg"
+                  alt="Фото Евгения Сапрыкина"
+                />
+              </picture>
+
               <div class="hero__contact-inner">
                 <span class="hero__name">Евгений Сапрыкин</span>
                 <a class="hero__phone" href="tel:+79282055157"
@@ -104,19 +110,6 @@
                 Оставить заявку
               </button>
             </div>
-            <!--             <div class="about__video">
-              <a
-                class="about__video-link"
-                data-fancybox="video"
-                href="https://youtu.be/5lCRsLjMeso"
-              >
-                <img
-                  class="about__video-buttonimg"
-                  src="images/icon-play-button.svg"
-                  alt="play video"
-                />
-              </a>
-            </div> -->
             <iframe
               class="about__video"
               width="546"
@@ -239,10 +232,16 @@
                 миллион
               </h2>
               <div class="advantages__photo advantages__photo--mobile">
-                <img
-                  src="./images/photos/photo-advantages-mobile.jpg"
-                  alt="Фото Евгения"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="./images/photos/photo-advantages-mobile.webp"
+                  />
+                  <img
+                    src="./images/photos/photo-advantages-mobile.jpg"
+                    alt="Фото Евгения"
+                  />
+                </picture>
               </div>
               <div class="advantages__list-wrapper">
                 <ul class="advantages__list-col">
@@ -274,15 +273,21 @@
               </div>
             </div>
             <div class="advantages__photo advantages__photo--desktop">
-              <img
-                src="./images/photos/photo-advantages-desktop.jpg"
-                alt="Фото Евгения"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="./images/photos/photo-advantages-desktop.webp"
+                />
+                <img
+                  src="./images/photos/photo-advantages-desktop.jpg"
+                  alt="Фото Евгения"
+                />
+              </picture>
             </div>
           </div>
         </div>
       </section>
-      <section class="biography">
+      <section class="biography" id="section-biography">
         <div class="container">
           <h2 class="biography__title title">
             Много знаете юристов<br />
@@ -318,150 +323,154 @@
         </div>
       </section>
       <section class="steps" id="section-steps">
-        <div class="steps__inner">
-          <div class="steps__slider">
-            <div class="steps__slide">
-              <h2 class="steps__title title">
-                Как происходит
-                <span class="steps__title-blue title__blue"
-                  >сотрудничество</span
-                >
-              </h2>
-              <div class="steps__list-item steps__list-item--left">
-                <span class="steps__number">1</span>
-                <div class="steps__info">
-                  <h6 class="steps__item-title">
-                    Бесплатная консультация по телефону
-                  </h6>
+        <div class="container">
+          <div class="steps__inner">
+            <div class="steps__slider">
+              <div class="steps__slide">
+                <h2 class="steps__title title">
+                  Как происходит
+                  <span class="steps__title-blue title__blue"
+                    >сотрудничество</span
+                  >
+                </h2>
+                <div class="steps__list-item steps__list-item--left">
+                  <span class="steps__number">1</span>
+                  <div class="steps__info">
+                    <h6 class="steps__item-title">
+                      Бесплатная консультация по телефону
+                    </h6>
 
-                  <p class="steps__text">
-                    Во время консультации вы сразу поймете выигрышное дело у вас
-                    или нет, а также получите профессиональный безвозмездный
-                    совет, как вам поступить
-                  </p>
-                  <button class="steps__btn btn">Оставить заявку</button>
+                    <p class="steps__text">
+                      Во время консультации вы сразу поймете выигрышное дело у
+                      вас или нет, а также получите профессиональный
+                      безвозмездный совет, как вам поступить
+                    </p>
+                    <button class="steps__btn btn">Оставить заявку</button>
+                  </div>
+                </div>
+                <div class="steps__list-item steps__list-item--right">
+                  <span class="steps__number">2</span>
+                  <div class="steps__info">
+                    <h6 class="steps__item-title">
+                      Встреча в офисе или по видеосвязи
+                    </h6>
+
+                    <p class="steps__text">
+                      Чтобы узнать все подробности ситуации стоит поговорить по
+                      видеосвязи, а лучше встретится в моем офисе по адресу: г.
+                      Краснодар ул.Ким, 4
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="steps__list-item steps__list-item--right">
-                <span class="steps__number">2</span>
-                <div class="steps__info">
-                  <h6 class="steps__item-title">
-                    Встреча в офисе или по видеосвязи
-                  </h6>
+              <div class="steps__slide">
+                <div class="steps__list-item steps__list-item--left">
+                  <span class="steps__number">3</span>
+                  <div class="steps__info">
+                    <h6 class="steps__item-title">
+                      Изучение материалов дела и документов
+                    </h6>
 
-                  <p class="steps__text">
-                    Чтобы узнать все подробности ситуации стоит поговорить по
-                    видеосвязи, а лучше встретится в моем офисе по адресу: г.
-                    Краснодар ул.Ким, 4
-                  </p>
+                    <p class="steps__text">
+                      К каждому делу существуют вещественные доказательства,
+                      которые необходимо изучить для полного понимания
+                      обстоятельств и возможных решений
+                    </p>
+                  </div>
+                </div>
+                <div class="steps__list-item steps__list-item--right">
+                  <span class="steps__number">4</span>
+                  <div class="steps__info">
+                    <h6 class="steps__item-title">
+                      Выбор способа решения ситуации
+                    </h6>
+
+                    <p class="steps__text">
+                      На основе предоставленных материалов принимается
+                      оптимальное решение, составляется и согласовывается
+                      стратегия действий
+                    </p>
+                  </div>
+                </div>
+                <div class="steps__list-item steps__list-item--left">
+                  <span class="steps__number">5</span>
+                  <div class="steps__info">
+                    <h6 class="steps__item-title">
+                      Озвучивание ценовой политики вопроса
+                    </h6>
+
+                    <p class="steps__text">
+                      Предлагается несколько вариантов для решения проблемы. В
+                      зависимости от вашего бюджета вы выбираете комфортный для
+                      вас
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="steps__slide">
-              <div class="steps__list-item steps__list-item--left">
-                <span class="steps__number">3</span>
-                <div class="steps__info">
-                  <h6 class="steps__item-title">
-                    Изучение материалов дела и документов
-                  </h6>
+              <div class="steps__slide">
+                <div class="steps__list-item steps__list-item--right">
+                  <span class="steps__number">6</span>
+                  <div class="steps__info">
+                    <h6 class="steps__item-title">
+                      Заключение договора и оплата
+                    </h6>
 
-                  <p class="steps__text">
-                    К каждому делу существуют вещественные доказательства,
-                    которые необходимо изучить для полного понимания
-                    обстоятельств и возможных решений
-                  </p>
+                    <p class="steps__text">
+                      Я сообщаю о гарантиях, мы подписываем договор на оказание
+                      услуг и вы вносите полную или частичную оплату по договору
+                    </p>
+                  </div>
+                </div>
+                <div class="steps__list-item steps__list-item--left">
+                  <span class="steps__number">7</span>
+                  <div class="steps__info">
+                    <h6 class="steps__item-title">Досудебная работа</h6>
+
+                    <p class="steps__text">
+                      На основе предоставленных материалов принимается
+                      оптимальное решение, составляется и согласовывается
+                      стратегия действий
+                    </p>
+                  </div>
+                </div>
+                <div class="steps__list-item steps__list-item--right">
+                  <span class="steps__number">8</span>
+                  <div class="steps__info">
+                    <h6 class="steps__item-title">Административная работа</h6>
+
+                    <p class="steps__text">
+                      Производится работа с органами государственного надзора,
+                      ведутся деловые переписки, составляются и обжалываются
+                      административные заявления
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="steps__list-item steps__list-item--right">
-                <span class="steps__number">4</span>
-                <div class="steps__info">
-                  <h6 class="steps__item-title">
-                    Выбор способа решения ситуации
-                  </h6>
+              <div class="steps__slide">
+                <div class="steps__list-item steps__list-item--left">
+                  <span class="steps__number">9</span>
+                  <div class="steps__info">
+                    <h6 class="steps__item-title">Медиация</h6>
 
-                  <p class="steps__text">
-                    На основе предоставленных материалов принимается оптимальное
-                    решение, составляется и согласовывается стратегия действий
-                  </p>
+                    <p class="steps__text">
+                      Проводятся личные встречи и переговоры с клиентами и
+                      контрагентами
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="steps__list-item steps__list-item--left">
-                <span class="steps__number">5</span>
-                <div class="steps__info">
-                  <h6 class="steps__item-title">
-                    Озвучивание ценовой политики вопроса
-                  </h6>
+                <div class="steps__list-item steps__list-item--right">
+                  <span class="steps__number">10</span>
+                  <div class="steps__info">
+                    <h6 class="steps__item-title">
+                      Выбор способа решения ситуации
+                    </h6>
 
-                  <p class="steps__text">
-                    Предлагается несколько вариантов для решения проблемы. В
-                    зависимости от вашего бюджета вы выбираете комфортный для
-                    вас
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="steps__slide">
-              <div class="steps__list-item steps__list-item--right">
-                <span class="steps__number">6</span>
-                <div class="steps__info">
-                  <h6 class="steps__item-title">
-                    Заключение договора и оплата
-                  </h6>
-
-                  <p class="steps__text">
-                    Я сообщаю о гарантиях, мы подписываем договор на оказание
-                    услуг и вы вносите полную или частичную оплату по договору
-                  </p>
-                </div>
-              </div>
-              <div class="steps__list-item steps__list-item--left">
-                <span class="steps__number">7</span>
-                <div class="steps__info">
-                  <h6 class="steps__item-title">Досудебная работа</h6>
-
-                  <p class="steps__text">
-                    На основе предоставленных материалов принимается оптимальное
-                    решение, составляется и согласовывается стратегия действий
-                  </p>
-                </div>
-              </div>
-              <div class="steps__list-item steps__list-item--right">
-                <span class="steps__number">8</span>
-                <div class="steps__info">
-                  <h6 class="steps__item-title">Административная работа</h6>
-
-                  <p class="steps__text">
-                    Производится работа с органами государственного надзора,
-                    ведутся деловые переписки, составляются и обжалываются
-                    административные заявления
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="steps__slide">
-              <div class="steps__list-item steps__list-item--left">
-                <span class="steps__number">9</span>
-                <div class="steps__info">
-                  <h6 class="steps__item-title">Медиация</h6>
-
-                  <p class="steps__text">
-                    Проводятся личные встречи и переговоры с клиентами и
-                    контрагентами
-                  </p>
-                </div>
-              </div>
-              <div class="steps__list-item steps__list-item--right">
-                <span class="steps__number">10</span>
-                <div class="steps__info">
-                  <h6 class="steps__item-title">
-                    Выбор способа решения ситуации
-                  </h6>
-
-                  <p class="steps__text">
-                    Составляются исковые заявления, ходатайства, дополнения,
-                    заключения и проводится судебная экспертиза
-                  </p>
-                  <button class="steps__btn btn">Оставить заявку</button>
+                    <p class="steps__text">
+                      Составляются исковые заявления, ходатайства, дополнения,
+                      заключения и проводится судебная экспертиза
+                    </p>
+                    <button class="steps__btn btn">Оставить заявку</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -610,7 +619,12 @@
               </form>
             </div>
             <div class="offer__contact">
-              <picture>
+              <picture class="offer__img">
+                <source
+                  type="image/webp"
+                  media="(max-width: 540px)"
+                  srcset="./images/photos/photo-offer-mobile.webp"
+                />
                 <source
                   media="(max-width: 540px)"
                   srcset="./images/photos/photo-offer-mobile.jpg"
@@ -619,13 +633,12 @@
                 <img
                   src="./images/photos/photo-offer-desktop.jpg"
                   alt="Фото Евгения"
-                  class="offer__img"
                 />
               </picture>
 
               <p class="offer__name">Евгений Сапрыкин</p>
-              <a class="offer__contact" href="mailto:lowyer@esaprykin.ru"
-                >lowyer@esaprykin.ru</a
+              <a class="offer__contact" href="mailto:lawyer@esaprykin.ru"
+                >lawyer@esaprykin.ru</a
               >
               <a class="offer__contact" href="tel:+79282055157"
                 >8-928-205-51-57</a

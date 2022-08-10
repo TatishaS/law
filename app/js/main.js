@@ -5,6 +5,8 @@ $(function () {
     const menu = document.querySelector('.menu__list');
     const overlay = document.querySelector('.overlay');
     const body = document.querySelector('body');
+    const menuLinks = document.querySelectorAll('.menu__list-link');
+
     burger.addEventListener('click', () => {
       if (!menu.classList.contains('active')) {
         menu.classList.add('active');
@@ -18,6 +20,19 @@ $(function () {
         overlay.classList.remove('overlay--show');
       }
     });
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        //e.preventDefault();
+        menu.classList.remove('active');
+        burger.classList.remove('active-burger');
+        body.classList.remove('locked');
+        overlay.classList.remove('overlay--show');
+
+        console.log('Был клик по меню');
+      });
+    });
+
     // Брейкпойнт, на котором появляется бургер-меню
     window.addEventListener('resize', () => {
       if (window.innerWidth > 600) {
@@ -35,14 +50,6 @@ $(function () {
     });
   }
   burgerMenu();
-
-  /* Video modal */
-  $('[data-fancybox="video"]').fancybox({
-    buttons: ['zoom', 'fullScreen', 'close'],
-    thumbs: {
-      autoStart: false,
-    },
-  });
 
   /* Slider */
   $('.biography__slider').slick({
