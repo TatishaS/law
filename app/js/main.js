@@ -163,6 +163,30 @@ $(function () {
 
   /* Модальное окно */
 
+  function successModal(e) {
+    const modalSuccess = document.querySelector('.modal__success');
+    const modalForm = document.querySelectorAll('.modal');
+    const overlay = document.querySelector('.overlay');
+
+    const modalSuccessClose = document.querySelector('.modal__success-close');
+
+    e.preventDefault();
+    modalSuccess.style.display = 'block';
+    modalForm.style.display = 'none';
+    overlay.classList.add('overlay--show');
+
+    modalSuccessClose.addEventListener('click', () => {
+      modalSuccess.display = 'none';
+
+      overlay.classList.remove('overlay--show');
+    });
+
+    overlay.addEventListener('click', function () {
+      overlay.classList.remove('overlay--show');
+      modalSuccess.style.display = 'none';
+    });
+  }
+
   function bindModal(trigger, modal, close) {
     (trigger = document.querySelector(trigger)),
       (modal = document.querySelector(modal)),
@@ -187,7 +211,6 @@ $(function () {
     });
 
     overlay.addEventListener('click', function () {
-      console.log('Закрытие модального окна');
       overlay.classList.remove('overlay--show');
       modal.style.display = 'none';
     });
@@ -198,23 +221,31 @@ $(function () {
   // ТРЕТИЙ аргумент - класс кнопки, при клике на которую будет закрываться модальное окно.
   bindModal('.trigger__btn', '.modal', '.modal__close');
   bindModal('.trigger__btn--mobile', '.modal', '.modal__close');
+  bindModal(
+    '.trigger__success-btn',
+    '.modal__success',
+    '.modal__success-close'
+  );
 
   /* Скрипт для отправки формы */
 
   //E-mail Ajax Send
-  $('.form').on('submit', function () {
+  $('.form').on('submit', function (e) {
     //Change
     var th = $(this);
+    var modalSuccess = $('.modal__success');
+    var modalForm = $('.modal');
+    var overlay = $('.overlay');
     $.ajax({
       type: 'POST',
       url: 'mail.php', //Change
       data: th.serialize(),
-    }).done(function () {
-      /* bindModal(
-        '.trigger__success-btn',
-        '.modal__success',
-        '.modal__success-close'
-      ); */
+    }).done(function (e) {
+      e.preventDefault();
+      modalSuccess.css('display', 'block');
+      modalForm.css('display', 'none');
+      overlay.addClass('overlay--show');
+
       alert('Thank you!');
       setTimeout(function () {
         // Done Functions
