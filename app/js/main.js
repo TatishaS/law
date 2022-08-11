@@ -163,7 +163,7 @@ $(function () {
 
   /* Модальное окно */
 
-  function successModal(e) {
+  /*   function successModal(e) {
     const modalSuccess = document.querySelector('.modal__success');
     const modalForm = document.querySelectorAll('.modal');
     const overlay = document.querySelector('.overlay');
@@ -186,18 +186,25 @@ $(function () {
       modalSuccess.style.display = 'none';
     });
   }
-
+ */
   function bindModal(trigger, modal, close) {
-    (trigger = document.querySelector(trigger)),
+    (trigger = document.querySelectorAll(trigger)),
       (modal = document.querySelector(modal)),
       (close = document.querySelector(close));
 
     const overlay = document.querySelector('.overlay');
 
-    trigger.addEventListener('click', e => {
-      e.preventDefault();
-      modal.style.display = 'block';
-      overlay.classList.add('overlay--show');
+    console.log(modal);
+    console.log(close);
+    console.log(trigger);
+
+    trigger.forEach(t => {
+      t.addEventListener('click', e => {
+        console.log('Клик по кнопке');
+        e.preventDefault();
+        modal.style.display = 'block';
+        overlay.classList.add('overlay--show');
+      });
     });
     close.addEventListener('click', () => {
       modal.style.display = 'none';
@@ -221,39 +228,40 @@ $(function () {
   // ТРЕТИЙ аргумент - класс кнопки, при клике на которую будет закрываться модальное окно.
   bindModal('.trigger__btn', '.modal', '.modal__close');
   bindModal('.trigger__btn--mobile', '.modal', '.modal__close');
-  bindModal(
+  /*   bindModal(
     '.trigger__success-btn',
     '.modal__success',
     '.modal__success-close'
-  );
+  ); */
 
   /* Скрипт для отправки формы */
 
-  //E-mail Ajax Send
-  $('.form').on('submit', function (e) {
-    //Change
-    var th = $(this);
-    var modalSuccess = $('.modal__success');
-    var modalForm = $('.modal');
-    var overlay = $('.overlay');
-    $.ajax({
-      type: 'POST',
-      url: 'mail.php', //Change
-      data: th.serialize(),
-    }).done(function (e) {
-      e.preventDefault();
-      modalSuccess.css('display', 'block');
-      modalForm.css('display', 'none');
-      overlay.addClass('overlay--show');
+  function formSubmit() {
+    const forms = document.querySelectorAll('.form');
+    forms.forEach(form => {
+      form.addEventListener('submit', formSend);
 
-      alert('Thank you!');
-      setTimeout(function () {
-        // Done Functions
-        th.trigger('reset');
-      }, 1000);
+      async function formSend(e) {
+        e.preventDefault();
+
+        let formData = new FormData(form);
+
+        let resp = await fetch('sendmail.php', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (resp.ok) {
+          let result = await resp.json();
+          alert(result.message);
+          form.reset();
+        } else {
+          alert('Ошибка отправки формы');
+        }
+      }
     });
-    return false;
-  });
+  }
+  formSubmit();
 
   /* Cкролл до начала блока steps */
   function scrollToTopSteps() {

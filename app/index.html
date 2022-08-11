@@ -77,7 +77,9 @@
                 Оставьте заявку и узнайте на первой бесплатной консультации
                 вероятность успеха в вашем деле
               </p>
-              <button class="hero__btn btn">Оставить заявку</button>
+              <button class="hero__btn btn trigger__btn">
+                Оставить заявку
+              </button>
             </div>
             <div class="hero__contact">
               <picture class="hero__photo">
@@ -159,7 +161,7 @@
             <div class="checklist__img">
               <img src="./images/notebook.png" alt="Чеклист" />
             </div>
-            <form action="" class="checklist__form form">
+            <form action="#" class="checklist__form form">
               <!-- Hidden Required Fields -->
               <input type="hidden" name="project_name" value="Esaprykin" />
               <input
@@ -172,9 +174,10 @@
               <input
                 type="email"
                 name="email"
-                class="checklist__form-input"
+                class="checklist__form-input _req"
                 placeholder="check@gmail.com"
                 autocomplete="off"
+                required
               />
               <button class="checklist__btn btn" type="submit">Получить</button>
             </form>
@@ -196,7 +199,7 @@
                 В любом из существующих видов права каждая проблема решается
                 лично мной в индивидуальном порядке с гарантиями
               </p>
-              <button class="types__btn types__btn--desktop btn">
+              <button class="types__btn types__btn--desktop trigger__btn btn">
                 Оставить заявку
               </button>
             </div>
@@ -253,7 +256,9 @@
                 >
               </li>
             </ul>
-            <button class="types__btn types__btn--mobile btn">
+            <button
+              class="types__btn types__btn--mobile trigger__btn--mobile btn"
+            >
               Оставить заявку
             </button>
           </div>
@@ -382,7 +387,9 @@
                       вас или нет, а также получите профессиональный
                       безвозмездный совет, как вам поступить
                     </p>
-                    <button class="steps__btn btn">Оставить заявку</button>
+                    <button class="steps__btn btn trigger__btn">
+                      Оставить заявку
+                    </button>
                   </div>
                 </div>
                 <div class="steps__list-item steps__list-item--right">
@@ -506,7 +513,9 @@
                       Составляются исковые заявления, ходатайства, дополнения,
                       заключения и проводится судебная экспертиза
                     </p>
-                    <button class="steps__btn btn">Оставить заявку</button>
+                    <button class="steps__btn btn trigger__btn">
+                      Оставить заявку
+                    </button>
                   </div>
                 </div>
               </div>
@@ -632,25 +641,12 @@
                 по-разному
               </p>
               <form class="offer__form form">
-                <!-- Hidden Required Fields -->
-                <input type="hidden" name="project_name" value="Esaprykin" />
-                <input
-                  type="hidden"
-                  name="admin_email"
-                  value="lawyer@esaprykin.ru"
-                />
-                <input
-                  type="hidden"
-                  name="form_subject"
-                  value="Form Footer Main"
-                />
-                <!-- END Hidden Required Fields -->
                 <label class="offer__form-label" for="name">Имя</label>
                 <input
                   type="text"
-                  class="offer__form-input"
+                  class="offer__form-input _req"
                   id="name"
-                  name="Имя"
+                  name="name"
                   autocomplete="off"
                   required
                 />
@@ -658,9 +654,9 @@
                   >Номеp телефона</label
                 >
                 <input
-                  class="offer__form-input"
+                  class="offer__form-input _req"
                   id="phone"
-                  name="Телефон"
+                  name="phone"
                   type="tel"
                   autocomplete="off"
                   required
@@ -729,17 +725,17 @@
         <label class="modal__form-label" for="name">Имя</label>
         <input
           type="text"
-          class="modal__form-input"
+          class="modal__form-input _req"
           autocomplete="off"
           id="name"
-          name="Имя"
+          name="name"
           required
         />
         <label class="modal__form-label" for="phone">Номеp телефона</label>
         <input
-          class="modal__form-input"
+          class="modal__form-input _req"
           id="phone"
-          name="Телефон"
+          name="phone"
           type="tel"
           autocomplete="off"
           required
