@@ -20,16 +20,13 @@ $(function () {
         overlay.classList.remove('overlay--show');
       }
     });
-
+    /* Cкрываем мобильное меню по нажатию на ссылку в меню */
     menuLinks.forEach(link => {
       link.addEventListener('click', () => {
-        //e.preventDefault();
         menu.classList.remove('active');
         burger.classList.remove('active-burger');
         body.classList.remove('locked');
         overlay.classList.remove('overlay--show');
-
-        console.log('Был клик по меню');
       });
     });
 
@@ -50,6 +47,30 @@ $(function () {
     });
   }
   burgerMenu();
+
+  /* Плавный скролл до якоря при клике на пункт меню */
+  function scrollToAnchor() {
+    const links = document.querySelectorAll('a.anchor');
+
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        let href = this.getAttribute('href').substring(1);
+
+        const scrollTarget = document.getElementById(href);
+        const topOffset = 0; // отступ от верха страницы
+        const elementPosition = scrollTarget.getBoundingClientRect().top;
+        const offsetPosition = elementPosition - topOffset;
+
+        window.scrollBy({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      });
+    });
+  }
+
+  scrollToAnchor();
 
   /* Slider */
   $('.biography__slider').slick({
@@ -115,7 +136,7 @@ $(function () {
 
   $('.fancybox-map').fancybox({
     buttons: ['close'],
-    //openEffect: 'none',
+    //openEffect: 'elastic',
     //closeEffect: 'none',
     beforeLoad: function () {
       if (init) return;
@@ -177,14 +198,34 @@ $(function () {
   // ТРЕТИЙ аргумент - класс кнопки, при клике на которую будет закрываться модальное окно.
   bindModal('.trigger__btn', '.modal', '.modal__close');
   bindModal('.trigger__btn--mobile', '.modal', '.modal__close');
-  bindModal(
-    '.trigger__success-btn',
-    '.modal__success',
-    '.modal__success-close'
-  );
+
+  /* Скрипт для отправки формы */
+
+  //E-mail Ajax Send
+  $('.form').on('submit', function () {
+    //Change
+    var th = $(this);
+    $.ajax({
+      type: 'POST',
+      url: 'mail.php', //Change
+      data: th.serialize(),
+    }).done(function () {
+      /* bindModal(
+        '.trigger__success-btn',
+        '.modal__success',
+        '.modal__success-close'
+      ); */
+      alert('Thank you!');
+      setTimeout(function () {
+        // Done Functions
+        th.trigger('reset');
+      }, 1000);
+    });
+    return false;
+  });
 
   /* Cкролл до начала блока steps */
-  function scrollToTop() {
+  function scrollToTopSteps() {
     const btnsScrollTo = document.querySelectorAll('.steps__btn-scroll-to');
     const sectionSteps = document.querySelector('#section-steps');
 
@@ -201,6 +242,5 @@ $(function () {
       });
     });
   }
-
-  scrollToTop();
+  scrollToTopSteps();
 });

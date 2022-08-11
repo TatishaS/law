@@ -21,22 +21,32 @@
         <nav class="header__menu menu">
           <ul class="menu__list">
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">Услуги</a>
+              <a class="menu__list-link anchor" href="#section-types">Услуги</a>
             </li>
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">Мои принципы</a>
+              <a class="menu__list-link anchor" href="#section-advantages"
+                >Мои принципы</a
+              >
             </li>
             <li class="menu__list-item active">
-              <a class="menu__list-link" href="#">Биография</a>
+              <a class="menu__list-link anchor" href="#section-biography"
+                >Биография</a
+              >
             </li>
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">Сотрудничество</a>
+              <a class="menu__list-link anchor" href="#section-steps"
+                >Сотрудничество</a
+              >
             </li>
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">История побед</a>
+              <a class="menu__list-link anchor" href="#section-cases"
+                >История побед</a
+              >
             </li>
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">Контакты</a>
+              <a class="menu__list-link anchor" href="#section-offer"
+                >Контакты</a
+              >
             </li>
             <li class="menu__list-item menu__list-item--mobile">
               <a href="mailto:lawyer@esaprykin.ru">lawyer@esaprykin.ru</a>
@@ -149,9 +159,19 @@
             <div class="checklist__img">
               <img src="./images/notebook.png" alt="Чеклист" />
             </div>
-            <form action="" class="checklist__form">
+            <form action="" class="checklist__form form">
+              <!-- Hidden Required Fields -->
+              <input type="hidden" name="project_name" value="Esaprykin" />
               <input
-                type="text"
+                type="hidden"
+                name="admin_email"
+                value="lawyer@esaprykin.ru"
+              />
+              <input type="hidden" name="form_subject" value="Form Checklist" />
+              <!-- END Hidden Required Fields -->
+              <input
+                type="email"
+                name="email"
                 class="checklist__form-input"
                 placeholder="check@gmail.com"
                 autocomplete="off"
@@ -161,7 +181,7 @@
           </div>
         </div>
       </section>
-      <section class="types">
+      <section class="types" id="section-types">
         <div class="container">
           <div class="types__inner">
             <div class="types__info">
@@ -183,37 +203,54 @@
             <h6 class="types__subtitle--mobile">Виды права</h6>
             <ul class="types__list">
               <li class="types__list-item">
-                <a href="#" class="types__list-link">Военное право</a>
+                <a href="voennoe-pravo.html" class="types__list-link"
+                  >Военное право</a
+                >
               </li>
               <li class="types__list-item">
-                <a href="#" class="types__list-link">Трудовое право</a>
+                <a href="trudovoe-pravo.html" class="types__list-link"
+                  >Трудовое право</a
+                >
               </li>
               <li class="types__list-item">
-                <a href="#" class="types__list-link">Семейное право</a>
+                <a href="semejnoe-pravo.html" class="types__list-link"
+                  >Семейное право</a
+                >
               </li>
               <li class="types__list-item">
-                <a href="#" class="types__list-link">Уголовное право</a>
+                <a href="ugolovnoe-pravo.html" class="types__list-link"
+                  >Уголовное право</a
+                >
               </li>
               <li class="types__list-item">
-                <a href="#" class="types__list-link">Земельное право</a>
+                <a href="zemelnoe-pravo.html" class="types__list-link"
+                  >Земельное право</a
+                >
               </li>
               <li class="types__list-item">
-                <a href="#" class="types__list-link"></a>
+                <a href="finansovoe-pravo.html" class="types__list-link"
+                  >Финансовое право</a
+                >
               </li>
               <li class="types__list-item">
-                <a href="#" class="types__list-link">Финансовое право</a>
+                <a href="grazhdanskoe-pravo.html" class="types__list-link"
+                  >Гражданское право</a
+                >
               </li>
               <li class="types__list-item">
-                <a href="#" class="types__list-link">Гражданское право</a>
+                <a href="korporativnoe-pravo.html" class="types__list-link"
+                  >Корпоративное право</a
+                >
               </li>
               <li class="types__list-item">
-                <a href="#" class="types__list-link">Корпоративное право</a>
+                <a href="konstitucionnoe-pravo.html" class="types__list-link"
+                  >Конституционное право</a
+                >
               </li>
               <li class="types__list-item">
-                <a href="#" class="types__list-link">Конституционное право</a>
-              </li>
-              <li class="types__list-item">
-                <a href="#" class="types__list-link">Административное право</a>
+                <a href="administrativnoe-pravo.html" class="types__list-link"
+                  >Административное право</a
+                >
               </li>
             </ul>
             <button class="types__btn types__btn--mobile btn">
@@ -222,7 +259,7 @@
           </div>
         </div>
       </section>
-      <section class="advantages">
+      <section class="advantages" id="section-advantages">
         <div class="container">
           <div class="advantages__inner">
             <div class="advantages__info">
@@ -477,7 +514,7 @@
           </div>
         </div>
       </section>
-      <section class="cases">
+      <section class="cases" id="section-cases">
         <div class="container">
           <h2 class="cases__title title">
             Мои
@@ -578,7 +615,7 @@
           </button>
         </div>
       </section>
-      <section class="offer">
+      <section class="offer" id="section-offer">
         <div class="container">
           <div class="offer__inner">
             <div class="offer__info">
@@ -594,12 +631,26 @@
                 ситуаций, все вопросы решаются в персональном порядке и
                 по-разному
               </p>
-              <form class="offer__form">
+              <form class="offer__form form">
+                <!-- Hidden Required Fields -->
+                <input type="hidden" name="project_name" value="Esaprykin" />
+                <input
+                  type="hidden"
+                  name="admin_email"
+                  value="lawyer@esaprykin.ru"
+                />
+                <input
+                  type="hidden"
+                  name="form_subject"
+                  value="Form Footer Main"
+                />
+                <!-- END Hidden Required Fields -->
                 <label class="offer__form-label" for="name">Имя</label>
                 <input
                   type="text"
                   class="offer__form-input"
                   id="name"
+                  name="Имя"
                   autocomplete="off"
                   required
                 />
@@ -609,9 +660,10 @@
                 <input
                   class="offer__form-input"
                   id="phone"
+                  name="Телефон"
                   type="tel"
                   autocomplete="off"
-                  required=""
+                  required
                 />
                 <button class="offer__form-btn btn" type="submit">
                   Оставить заявку
@@ -668,19 +720,26 @@
 
     <div class="modal">
       <div class="modal__close"></div>
-      <form class="modal__form">
+      <form class="modal__form form">
+        <!-- Hidden Required Fields -->
+        <input type="hidden" name="project_name" value="Esaprykin" />
+        <input type="hidden" name="admin_email" value="lawyer@esaprykin.ru" />
+        <input type="hidden" name="form_subject" value="Form Modal Main" />
+        <!-- END Hidden Required Fields -->
         <label class="modal__form-label" for="name">Имя</label>
         <input
           type="text"
           class="modal__form-input"
           autocomplete="off"
           id="name"
+          name="Имя"
           required
         />
         <label class="modal__form-label" for="phone">Номеp телефона</label>
         <input
           class="modal__form-input"
           id="phone"
+          name="Телефон"
           type="tel"
           autocomplete="off"
           required
