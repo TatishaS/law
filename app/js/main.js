@@ -163,14 +163,13 @@ $(function () {
 
   /* Модальное окно */
 
-  /*   function successModal(e) {
+  function successModal() {
     const modalSuccess = document.querySelector('.modal__success');
     const modalForm = document.querySelectorAll('.modal');
     const overlay = document.querySelector('.overlay');
 
     const modalSuccessClose = document.querySelector('.modal__success-close');
 
-    e.preventDefault();
     modalSuccess.style.display = 'block';
     modalForm.style.display = 'none';
     overlay.classList.add('overlay--show');
@@ -186,7 +185,7 @@ $(function () {
       modalSuccess.style.display = 'none';
     });
   }
- */
+
   function bindModal(trigger, modal, close) {
     (trigger = document.querySelectorAll(trigger)),
       (modal = document.querySelector(modal)),
@@ -200,7 +199,6 @@ $(function () {
 
     trigger.forEach(t => {
       t.addEventListener('click', e => {
-        console.log('Клик по кнопке');
         e.preventDefault();
         modal.style.display = 'block';
         overlay.classList.add('overlay--show');
@@ -253,7 +251,8 @@ $(function () {
 
         if (resp.ok) {
           let result = await resp.json();
-          alert(result.message);
+          console.log(result.message);
+          successModal();
           form.reset();
         } else {
           alert('Ошибка отправки формы');
