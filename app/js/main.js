@@ -12,10 +12,19 @@ $(function () {
         menu.classList.add('active');
         burger.classList.add('active-burger');
         body.classList.add('locked');
+        /* document.body.style.position = 'fixed';
+        document.body.style.top = `-${window.scrollY}px`; */
+
         overlay.classList.add('overlay--show');
       } else {
+        /* const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        
+        window.scrollTo(0, parseInt(scrollY || '0') * -1); */
         menu.classList.remove('active');
         burger.classList.remove('active-burger');
+
         body.classList.remove('locked');
         overlay.classList.remove('overlay--show');
       }
@@ -26,6 +35,11 @@ $(function () {
         menu.classList.remove('active');
         burger.classList.remove('active-burger');
         body.classList.remove('locked');
+        /*       const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+    
+        window.scrollTo(0, parseInt(scrollY || '0') * -1); */
         overlay.classList.remove('overlay--show');
       });
     });
@@ -36,6 +50,11 @@ $(function () {
         menu.classList.remove('active');
         burger.classList.remove('active-burger');
         body.classList.remove('locked');
+        /* const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+  
+        window.scrollTo(0, parseInt(scrollY || '0') * -1); */
       }
     });
 
@@ -43,6 +62,11 @@ $(function () {
       menu.classList.remove('active');
       burger.classList.remove('active-burger');
       body.classList.remove('locked');
+      /* const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+     
+      window.scrollTo(0, parseInt(scrollY || '0') * -1); */
       overlay.classList.remove('overlay--show');
     });
   }
@@ -163,26 +187,58 @@ $(function () {
 
   /* Модальное окно */
 
+  // Разрешаем скролл заднего фона при открытом модальном окне
+  function enableScroll() {
+    const body = document.body;
+    let pagePosition = parseInt(body.dataset.position, 10);
+    console.log(`Page position: ${pagePosition}`);
+    body.style.top = 'auto';
+    body.classList.remove('disable-scroll');
+
+    window.scrollTo({ top: pagePosition, left: 0 });
+    body.removeAttribute('data-position');
+    console.log(body.style.top);
+    /* const scrollY = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1); */
+  }
+  // Запрещаем скролл заднего фона при открытом модальном окне
+  function disableScroll() {
+    const body = document.body;
+    let pagePosition = window.scrollY;
+    body.classList.add('disable-scroll');
+    body.dataset.position = pagePosition;
+    body.style.top = -pagePosition + 'px';
+    console.log(body.style.top);
+    /*    document.body.style.position = 'fixed';
+    document.body.style.top = `-${window.scrollY}px`; */
+  }
+
   function successModal() {
     const modalSuccess = document.querySelector('.modal__success');
-    const modalForm = document.querySelectorAll('.modal');
+    const modalForm = document.querySelector('.modal');
     const overlay = document.querySelector('.overlay');
 
     const modalSuccessClose = document.querySelector('.modal__success-close');
-
-    modalSuccess.style.display = 'block';
     modalForm.style.display = 'none';
+    modalSuccess.style.display = 'block';
     overlay.classList.add('overlay--show');
 
+    disableScroll();
+
     modalSuccessClose.addEventListener('click', () => {
-      modalSuccess.display = 'none';
+      enableScroll();
+      modalSuccess.style.display = 'none';
+      modalForm.style.display = 'none';
 
       overlay.classList.remove('overlay--show');
     });
 
     overlay.addEventListener('click', function () {
-      overlay.classList.remove('overlay--show');
+      enableScroll();
       modalSuccess.style.display = 'none';
+      overlay.classList.remove('overlay--show');
     });
   }
 
@@ -193,22 +249,21 @@ $(function () {
 
     const overlay = document.querySelector('.overlay');
 
-    console.log(modal);
-    console.log(close);
-    console.log(trigger);
-
     trigger.forEach(t => {
       t.addEventListener('click', e => {
         e.preventDefault();
         modal.style.display = 'block';
         overlay.classList.add('overlay--show');
+        disableScroll();
       });
     });
     close.addEventListener('click', () => {
+      enableScroll();
       modal.style.display = 'none';
       overlay.classList.remove('overlay--show');
     });
     modal.addEventListener('click', e => {
+      enableScroll();
       if (e.target === modal) {
         modal.style.display = 'none';
         overlay.classList.remove('overlay--show');
@@ -216,6 +271,7 @@ $(function () {
     });
 
     overlay.addEventListener('click', function () {
+      enableScroll();
       overlay.classList.remove('overlay--show');
       modal.style.display = 'none';
     });
@@ -226,11 +282,6 @@ $(function () {
   // ТРЕТИЙ аргумент - класс кнопки, при клике на которую будет закрываться модальное окно.
   bindModal('.trigger__btn', '.modal', '.modal__close');
   bindModal('.trigger__btn--mobile', '.modal', '.modal__close');
-  /*   bindModal(
-    '.trigger__success-btn',
-    '.modal__success',
-    '.modal__success-close'
-  ); */
 
   /* Скрипт для отправки формы */
 
@@ -248,12 +299,12 @@ $(function () {
           method: 'POST',
           body: formData,
         });
+        successModal();
+        e.target.reset();
 
         if (resp.ok) {
           let result = await resp.json();
           console.log(result.message);
-          successModal();
-          form.reset();
         } else {
           alert('Ошибка отправки формы');
         }
@@ -268,8 +319,8 @@ $(function () {
     const sectionSteps = document.querySelector('#section-steps');
 
     btnsScrollTo.forEach(s => {
-      addEventListener('click', e => {
-        console.log('Был клик');
+      s.addEventListener('click', () => {
+        console.log('Был клик по btn scroll');
         const secStepsCoords = sectionSteps.getBoundingClientRect();
 
         window.scrollTo({

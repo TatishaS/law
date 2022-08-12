@@ -162,15 +162,6 @@
               <img src="./images/notebook.png" alt="Чеклист" />
             </div>
             <form action="#" class="checklist__form form">
-              <!-- Hidden Required Fields -->
-              <input type="hidden" name="project_name" value="Esaprykin" />
-              <input
-                type="hidden"
-                name="admin_email"
-                value="lawyer@esaprykin.ru"
-              />
-              <input type="hidden" name="form_subject" value="Form Checklist" />
-              <!-- END Hidden Required Fields -->
               <input
                 type="email"
                 name="email"
@@ -714,14 +705,9 @@
 
     <div class="overlay"></div>
 
-    <div class="modal">
+    <div class="modal modal__request">
       <div class="modal__close"></div>
       <form class="modal__form form">
-        <!-- Hidden Required Fields -->
-        <input type="hidden" name="project_name" value="Esaprykin" />
-        <input type="hidden" name="admin_email" value="lawyer@esaprykin.ru" />
-        <input type="hidden" name="form_subject" value="Form Modal Main" />
-        <!-- END Hidden Required Fields -->
         <label class="modal__form-label" for="name">Имя</label>
         <input
           type="text"
