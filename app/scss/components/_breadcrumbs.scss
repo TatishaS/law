@@ -51,14 +51,17 @@
         border: 1px solid $main-blue;
         padding: 3px;
       }
-      a {
+      .breadcrumbs-link {
         font-size: 16px;
         line-height: 20px;
         display: block;
         padding: 3px 10px;
       }
-      a:hover,
-      a:active {
+      .breadcrumbs-link:hover {
+        color: $main-blue;
+        text-decoration: underline;
+      }
+      .breadcrumbs-link.active {
         color: $main-blue;
         text-decoration: underline;
       }

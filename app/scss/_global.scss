@@ -116,7 +116,9 @@ body {
   opacity: 0;
   pointer-events: none;
 }
-
+.fancybox-bg {
+  background-color: rgba(10, 26, 35, 0.9);
+}
 .offer .fancybox-content {
   padding: 0;
 }
@@ -134,11 +136,31 @@ body {
   }
 }
 
+.offer .fancybox-map::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/icon-spinner.svg') center 70% / 40px no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease 0s;
+  z-index: 1;
+}
+
+.offer .fancybox-map.loading::after {
+  opacity: 1;
+  visibility: visible;
+  z-index: 99995;
+}
+
 #map {
   display: none;
   width: auto;
   height: auto;
-  padding: 10px;
+  padding: 0;
 }
 
 .disable-scroll {
@@ -148,4 +170,25 @@ body {
   position: fixed;
   left: 0;
   top: 0;
+}
+
+input._error {
+  border-bottom: 1px solid rgb(226, 46, 46);
+}
+
+.form__error {
+  color: rgb(226, 46, 46);
+  text-align: left;
+  font-size: 12px;
+  display: block;
+  margin-top: 0;
+  display: none;
+}
+
+.form__input-tel:valid:not(:placeholder-shown) {
+  border-color: green;
+}
+
+.form__input-tel:invalid:not(:placeholder-shown) {
+  border-color: rgb(226, 46, 46);
 }

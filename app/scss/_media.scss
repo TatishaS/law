@@ -16,8 +16,10 @@
     max-width: 910px;
   }
   .menu__list {
+    max-width: 910px;
     flex-wrap: wrap;
   }
+
   .menu__list-item {
     padding-bottom: 20px;
     margin-right: 20px;
@@ -56,6 +58,7 @@
   .header__footer {
     max-width: 910px;
     margin: 0 auto;
+    margin-top: 150px; // for fixed desktop menu
   }
 
   .offer__inner {
@@ -85,6 +88,10 @@
 @media (max-width: 760px) {
   .container {
     max-width: 710px;
+  }
+
+  .menu__list {
+    max-width: 650px;
   }
   .title {
     font-size: 46px;
@@ -276,6 +283,10 @@
     padding: 30px;
   }
 
+  .modal__download {
+    min-height: 150px;
+  }
+
   .modal__close {
     width: 37px;
     height: 37px;
@@ -291,6 +302,18 @@
     margin-bottom: 15px;
   }
 
+  .modal__email-input {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 10px;
+
+    &::placeholder {
+      font-size: 16px;
+      line-height: 20px;
+      padding: 10px;
+    }
+  }
+
   .modal__form-label {
     font-size: 16px;
     line-height: 20px;
@@ -298,6 +321,9 @@
 
   .modal__form-btn {
     margin-top: 25px;
+  }
+  .modal__form-btn--download {
+    margin-top: 0;
   }
 
   .modal__msg {
@@ -310,9 +336,18 @@
     width: 127px;
     height: 127px;
   }
+
+  .header {
+    min-height: 50px;
+  }
+
+  .header__logo {
+    display: block;
+    margin-top: 65px;
+  }
   .header__logo img {
-    width: 312px;
-    height: 27px;
+    width: 308px;
+    height: 24px;
   }
 
   .header__footer {
@@ -570,6 +605,10 @@
     padding-bottom: 0;
     padding-right: 0;
     border-bottom: none;
+  }
+
+  .cases__item-text {
+    font-size: 19px;
   }
 
   .cases__btn {

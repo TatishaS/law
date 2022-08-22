@@ -17,6 +17,11 @@
     display: block;
   }
 
+  &__download {
+    min-height: 244px;
+    padding: 50px 38px 45px 38px;
+  }
+
   &__close {
     position: absolute;
     content: '';
@@ -54,12 +59,46 @@
     border-bottom: 1px solid #0a1a23;
     padding: 10px;
     margin-bottom: 25px;
+    &::placeholder {
+      color: rgba(109, 109, 109, 0.4);
+    }
+  }
+
+  &__email-input {
+    width: 100%;
+
+    padding: 15px 20px;
+    border: 3px solid $button-blue;
+    border-radius: 30px;
+    font-weight: 700;
+    color: #6d6d6d;
+    background-color: #fff;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+
+    &::placeholder {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      text-transform: uppercase;
+
+      color: #6d6d6d;
+    }
+  }
+
+  &__email-input:focus {
+    outline: none;
   }
 
   &__form-btn {
     display: inline-block;
     width: 100%;
     margin-top: 45px;
+  }
+
+  &__form-btn--download {
+    margin-top: 0;
   }
 
   &__msg {

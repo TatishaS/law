@@ -57,7 +57,7 @@
           <button class="menu__burger">
             <span></span>
           </button>
-          <a class="header__logo" href="#">
+          <a class="header__logo" href="/">
             <img src="./images/logo.svg" alt="logo" />
           </a>
         </nav>
@@ -161,7 +161,7 @@
             <div class="checklist__img">
               <img src="./images/notebook.png" alt="Чеклист" />
             </div>
-            <form action="#" class="checklist__form form">
+            <form class="checklist__form form">
               <input
                 type="email"
                 name="email"
@@ -350,7 +350,7 @@
               </p>
             </div>
           </div>
-          <button class="biography__slide-btn btn">
+          <button class="biography__slide-btn btn trigger__biography-btn">
             Скачать полную биографию
           </button>
         </div>
@@ -610,7 +610,7 @@
               </div>
             </div>
           </div>
-          <button class="cases__btn btn">
+          <button class="cases__btn btn trigger__cases-btn">
             Скачать подтверждающие документы
           </button>
         </div>
@@ -639,19 +639,24 @@
                   id="name"
                   name="name"
                   autocomplete="off"
-                  required
                 />
-                <label class="offer__form-label" for="phone"
-                  >Номеp телефона</label
-                >
-                <input
-                  class="offer__form-input _req"
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  autocomplete="off"
-                  required
-                />
+                <div class="form__tel-wrapper">
+                  <label class="offer__form-label" for="phone"
+                    >Номеp телефона</label
+                  >
+                  <input
+                    class="offer__form-input form__input-tel"
+                    id="phone"
+                    name="phone"
+                    autocomplete="off"
+                    type="tel"
+                    placeholder="+7(999)000-00-00"
+                    pattern="^[\d\+][\d\(\)\ -]{4,14}\d$"
+                    minlength="10"
+                    maxlength="18"
+                    required
+                  />
+                </div>
                 <button class="offer__form-btn btn" type="submit">
                   Оставить заявку
                 </button>
@@ -694,11 +699,11 @@
     <footer class="footer">
       <div class="container">
         <div class="footer__inner">
-          <a href="#" class="footer__link">Политика конфиденциальности</a>
-          <a href="#" class="footer__logo">
+          <a href="/" class="footer__link">Политика конфиденциальности</a>
+          <a href="index.html" class="footer__logo">
             <img src="./images/logo.svg" alt="logo" class="footer__logo-img" />
           </a>
-          <a href="#" class="footer__link">Юридическая информация</a>
+          <a href="/" class="footer__link">Юридическая информация</a>
         </div>
       </div>
     </footer>
@@ -715,19 +720,43 @@
           autocomplete="off"
           id="name"
           name="name"
-          required
         />
-        <label class="modal__form-label" for="phone">Номеp телефона</label>
+        <div class="form__tel-wrapper">
+          <label class="modal__form-label" for="phone">Номеp телефона</label>
+          <input
+            class="modal__form-input _req form__input-tel"
+            id="phone"
+            name="phone"
+            autocomplete="off"
+            required
+            type="tel"
+            pattern="^[\d\+][\d\(\)\ -]{4,14}\d$"
+            minlength="10"
+            maxlength="18"
+            placeholder="+7(999)000-00-00"
+          />
+        </div>
+        <button type="submit" class="modal__form-btn trigger__success-btn btn">
+          Оставить заявку
+        </button>
+      </form>
+    </div>
+    <div class="modal modal__download">
+      <div class="modal__close"></div>
+      <form class="modal__form form">
         <input
-          class="modal__form-input _req"
-          id="phone"
-          name="phone"
-          type="tel"
+          type="email"
+          name="email"
+          class="modal__email-input"
+          placeholder="check@gmail.com"
           autocomplete="off"
           required
         />
-        <button type="submit" class="modal__form-btn trigger__success-btn btn">
-          Оставить заявку
+        <button
+          type="submit"
+          class="modal__form-btn modal__form-btn--download trigger__success-btn btn"
+        >
+          Отправить
         </button>
       </form>
     </div>

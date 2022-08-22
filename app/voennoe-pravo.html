@@ -87,17 +87,17 @@
               <span class="breadcrumbs__link active" href="#">Все виды права</span>
               <div class="drop bg-white">
                 <ul class="list pl0">
-                  <li><a href="voennoe-pravo.html">Военное право</a></li>
-                  <li><a href="trudovoe-pravo.html">Трудовое право</a></li>
-                  <li><a href="semejnoe-pravo.html">Семейное право</a></li>
-                  <li><a href="ugolovnoe-pravo.html">Уголовное право</a></li>
-                  <li><a href="zemelnoe-pravo.html">Земельное право</a></li>
-                  <li><a href="finansovoe-pravo.html">Финансовое право</a></li>
+                  <li ><a href="voennoe-pravo.html" class="breadcrumbs-link active">Военное право</a></li>
+                  <li><a href="trudovoe-pravo.html" class="breadcrumbs-link">Трудовое право</a></li>
+                  <li><a href="semejnoe-pravo.html" class="breadcrumbs-link">Семейное право</a></li>
+                  <li><a href="ugolovnoe-pravo.html" class="breadcrumbs-link">Уголовное право</a></li>
+                  <li><a href="zemelnoe-pravo.html" class="breadcrumbs-link">Земельное право</a></li>
+                  <li><a href="finansovoe-pravo.html" class="breadcrumbs-link">Финансовое право</a></li>
                   <li><a href="grazhdanskoe-pravo.html
-                    ">Гражданское право</a></li>
-                  <li><a href="korporativnoe-pravo.html">Корпоративное право</a></li>
-                  <li><a href="konstitucionnoe-pravo.html">Конституционное право</a></li>
-                  <li><a href="administrativnoe-pravo.html">Административное право</a></li>
+                    " class="breadcrumbs-link">Гражданское право</a></li>
+                  <li><a href="korporativnoe-pravo.html" class="breadcrumbs-link">Корпоративное право</a></li>
+                  <li><a href="konstitucionnoe-pravo.html" class="breadcrumbs-link">Конституционное право</a></li>
+                  <li><a href="administrativnoe-pravo.html" class="breadcrumbs-link">Административное право</a></li>
                 </ul>
               </div>
             
@@ -263,7 +263,7 @@
               </div>
             </div>
           </div>
-          <button class="cases__btn btn">
+          <button class="cases__btn btn trigger__cases-btn">
             Скачать подтверждающие документы
           </button>
         </div>
@@ -359,19 +359,27 @@
                 <input
                   type="text"
                   class="offer__form-input _req"
-                  id="name" name="name" autocomplete="off"
-                  required
+                  id="name"
+                  name="name"
+                  autocomplete="off"
                 />
-                <label class="offer__form-label" for="phone" 
-                  >Номеp телефона</label
-                >
-                <input
-                  class="offer__form-input _req"
-                  id="phone" name="phone"
-                  type="tel"
-               autocomplete="off" required
-              
-                />
+                <div class="form__tel-wrapper">
+                  <label class="offer__form-label" for="phone"
+                    >Номеp телефона</label
+                  >
+                  <input
+                    class="offer__form-input form__input-tel"
+                    id="phone"
+                    name="phone"
+                    autocomplete="off"
+                    type="tel"
+                    placeholder="+7(999)000-00-00"
+                    pattern="^[\d\+][\d\(\)\ -]{4,14}\d$"
+                    minlength="10"
+                    maxlength="18"
+                    required
+                  />
+                </div>
                 <button class="offer__form-btn btn" type="submit">
                   Оставить заявку
                 </button>
@@ -415,16 +423,68 @@
     <footer class="footer">
       <div class="container">
         <div class="footer__inner">
-          <a href="#" class="footer__link">Политика конфиденциальности</a>
+          <a href="/" class="footer__link">Политика конфиденциальности</a>
           <a href="index.html" class="footer__logo">
             <img src="./images/logo.svg" alt="logo" class="footer__logo-img" />
           </a>
-          <a href="#" class="footer__link">Юридическая информация</a>
+          <a href="/" class="footer__link">Юридическая информация</a>
         </div>
       </div>
     </footer>
 
     <div class="overlay"></div>
+
+    <div class="modal modal__request">
+      <div class="modal__close"></div>
+      <form class="modal__form form">
+        <label class="modal__form-label" for="name">Имя</label>
+        <input
+          type="text"
+          class="modal__form-input _req"
+          autocomplete="off"
+          id="name"
+          name="name"
+        />
+        <div class="form__tel-wrapper">
+          <label class="modal__form-label" for="phone">Номеp телефона</label>
+          <input
+            class="modal__form-input _req form__input-tel"
+            id="phone"
+            name="phone"
+            autocomplete="off"
+            required
+            type="tel"
+            pattern="^[\d\+][\d\(\)\ -]{4,14}\d$"
+            minlength="10"
+            maxlength="18"
+            placeholder="+7(999)000-00-00"
+          />
+        </div>
+        <button type="submit" class="modal__form-btn trigger__success-btn btn">
+          Оставить заявку
+        </button>
+      </form>
+    </div>
+
+    <div class="modal modal__download">
+      <div class="modal__close"></div>
+      <form class="modal__form form">
+        <input
+          type="email"
+          name="email"
+          class="modal__email-input"
+          placeholder="check@gmail.com"
+          autocomplete="off"
+          required
+        />
+        <button
+          type="submit"
+          class="modal__form-btn modal__form-btn--download trigger__success-btn btn"
+        >
+          Отправить
+        </button>
+      </form>
+    </div>
 
     <div class="modal modal__success">
       <div class="modal__close modal__success-close"></div>

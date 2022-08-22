@@ -1,4 +1,5 @@
 .offer {
+  position: relative;
   margin-top: 140px;
   padding-bottom: 110px;
   &__inner {
@@ -32,6 +33,9 @@
     padding: 12px 10px;
     background-color: transparent;
     margin-bottom: 20px;
+    &::placeholder {
+      color: rgba(109, 109, 109, 0.3);
+    }
   }
 
   &__form-btn {
