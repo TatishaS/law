@@ -23,7 +23,7 @@ $(function () {
     const burger = document.querySelector('.menu__burger');
     const menu = document.querySelector('.menu__list');
     const overlay = document.querySelector('.overlay');
-    const body = document.querySelector('body');
+    //const body = document.querySelector('body');
     const menuLinks = document.querySelectorAll('.menu__list-link');
 
     burger.addEventListener('click', () => {
@@ -74,7 +74,7 @@ $(function () {
         let href = this.getAttribute('href').substring(1);
 
         const scrollTarget = document.getElementById(href);
-        const topOffset = 0; // отступ от верха страницы
+        const topOffset = 80; // отступ от верха страницы
         const elementPosition = scrollTarget.getBoundingClientRect().top;
         const offsetPosition = elementPosition - topOffset;
 
@@ -85,7 +85,6 @@ $(function () {
       });
     });
   }
-
   scrollToAnchor();
 
   /* Slider */
@@ -147,13 +146,10 @@ $(function () {
     $('.menu__list').toggleClass('menu__list--active');
   });
 
-  /* Map modal */
-  var init = false;
-
+  /* Модальное fancybox окно - карта */
+  let init = false;
   $('.fancybox-map').fancybox({
     buttons: ['close'],
-    //openEffect: 'elastic',
-    //closeEffect: 'none',
 
     beforeLoad: function () {
       showPreloader();
@@ -165,7 +161,7 @@ $(function () {
     afterLoad: function () {
       setTimeout(function () {
         removePreloader();
-      }, 1000);
+      }, 2500);
     },
 
     helpers: {
@@ -178,17 +174,17 @@ $(function () {
   });
 
   function showPreloader() {
-    var block = document.querySelector('.fancybox-map');
+    const block = document.querySelector('.fancybox-map');
     block.classList.add('loading');
   }
 
   function removePreloader() {
-    var block = document.querySelector('.fancybox-map');
+    const block = document.querySelector('.fancybox-map');
     block.classList.remove('loading');
   }
 
   function loadMap(target) {
-    var script = document.createElement('script');
+    const script = document.createElement('script');
 
     script.type = 'text/javascript';
     script.src =
@@ -209,32 +205,39 @@ $(function () {
     });
     modalSuccess.style.display = 'block';
     overlay.classList.add('overlay--show');
-
     disableScroll();
 
-    modalSuccessClose.addEventListener('click', () => {
-      enableScroll();
-      modalSuccess.style.display = 'none';
-      modalForms.forEach(form => {
-        form.style.display = 'none';
-      });
-
-      overlay.classList.remove('overlay--show');
-    });
-
-    overlay.addEventListener('click', function () {
+    const handleModalSuccess = elem => {
       enableScroll();
       modalSuccess.style.display = 'none';
       overlay.classList.remove('overlay--show');
-    });
+
+      elem.removeEventListener('click', () => handleModalSuccess(elem));
+    };
+
+    modalSuccessClose.addEventListener('click', () =>
+      handleModalSuccess(modalSuccessClose)
+    );
+
+    overlay.addEventListener('click', () => handleModalSuccess(overlay));
   }
+
   /* Модальное окно */
   function bindModal(trigger, modal, close) {
+    if (!trigger || !modal) return;
     (trigger = document.querySelectorAll(trigger)),
       (modal = document.querySelector(modal)),
       (close = document.querySelectorAll(close));
 
     const overlay = document.querySelector('.overlay');
+
+    const hideModal = elem => {
+      console.log('Навешан обработчик');
+      enableScroll();
+      modal.style.display = 'none';
+      overlay.classList.remove('overlay--show');
+      elem.removeEventListener('click', () => hideModal(elem));
+    };
 
     trigger.forEach(t => {
       t.addEventListener('click', e => {
@@ -242,27 +245,24 @@ $(function () {
         modal.style.display = 'block';
         overlay.classList.add('overlay--show');
         disableScroll();
-      });
-    });
-    close.forEach(btn => {
-      btn.addEventListener('click', () => {
-        enableScroll();
-        modal.style.display = 'none';
-        overlay.classList.remove('overlay--show');
-      });
-    });
-    modal.addEventListener('click', e => {
-      enableScroll();
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        overlay.classList.remove('overlay--show');
-      }
-    });
 
-    overlay.addEventListener('click', function () {
-      enableScroll();
-      overlay.classList.remove('overlay--show');
-      modal.style.display = 'none';
+        /* Обработка клика на кнопку "закрыть" */
+        close.forEach(btn => {
+          btn.addEventListener('click', () => hideModal(btn));
+        });
+
+        /* Обработка клика на модальное окно */
+        modal.addEventListener('click', e => {
+          if (e.target === modal) {
+            hideModal(modal);
+          }
+        });
+
+        /* Обработка клика на оверлей */
+        overlay.addEventListener('click', function () {
+          hideModal(overlay);
+        });
+      });
     });
   }
 
@@ -275,7 +275,6 @@ $(function () {
   bindModal('.trigger__biography-btn', '.modal__download', '.modal__close');
 
   /* Скрипт для отправки формы */
-
   function formSubmit() {
     const forms = document.querySelectorAll('.form');
     forms.forEach(form => {
@@ -290,10 +289,11 @@ $(function () {
           body: formData,
         });
 
+        successModal(); //временно, после перенесется ниже внутрь условия resp.ok
+        e.target.reset(); //временно
+
         if (resp.ok) {
           let result = await resp.json();
-          successModal();
-          e.target.reset();
         } else {
           alert('Ошибка отправки формы');
         }
@@ -310,6 +310,8 @@ $(function () {
     btnsScrollTo.forEach(s => {
       s.addEventListener('click', () => {
         const secStepsCoords = sectionSteps.getBoundingClientRect();
+        console.log(secStepsCoords);
+        console.log(window.pageXOffset);
 
         window.scrollTo({
           left: secStepsCoords.left + window.pageXOffset,
