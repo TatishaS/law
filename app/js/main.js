@@ -18,6 +18,7 @@ $(function () {
     body.dataset.position = pagePosition;
     body.style.top = -pagePosition + 'px';
   }
+
   /* Burger menu */
   function burgerMenu() {
     const burger = document.querySelector('.menu__burger');
@@ -26,6 +27,12 @@ $(function () {
     //const body = document.querySelector('body');
     const menuLinks = document.querySelectorAll('.menu__list-link');
 
+    function hideBurgerMenu() {
+      menu.classList.remove('active');
+      burger.classList.remove('active-burger');
+      overlay.classList.remove('overlay--show');
+    }
+
     burger.addEventListener('click', () => {
       if (!menu.classList.contains('active')) {
         menu.classList.add('active');
@@ -33,18 +40,12 @@ $(function () {
 
         overlay.classList.add('overlay--show');
       } else {
-        menu.classList.remove('active');
-        burger.classList.remove('active-burger');
-        overlay.classList.remove('overlay--show');
+        hideBurgerMenu();
       }
     });
     /* Cкрываем мобильное меню по нажатию на ссылку в меню */
     menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('active');
-        burger.classList.remove('active-burger');
-        overlay.classList.remove('overlay--show');
-      });
+      link.addEventListener('click', hideBurgerMenu);
     });
 
     // Брейкпойнт, на котором появляется бургер-меню
@@ -55,14 +56,8 @@ $(function () {
       }
     });
 
-    overlay.addEventListener('click', function () {
-      menu.classList.remove('active');
-      burger.classList.remove('active-burger');
-
-      overlay.classList.remove('overlay--show');
-    });
+    overlay.addEventListener('click', hideBurgerMenu);
   }
-  burgerMenu();
 
   /* Плавный скролл до якоря при клике на пункт меню */
   function scrollToAnchor() {
@@ -85,7 +80,6 @@ $(function () {
       });
     });
   }
-  scrollToAnchor();
 
   /* Slider */
   $('.biography__slider').slick({
@@ -142,12 +136,28 @@ $(function () {
     ],
   });
 
-  $('.menu__btn').on('click', function () {
-    $('.menu__list').toggleClass('menu__list--active');
-  });
-
   /* Модальное fancybox окно - карта */
   let init = false;
+
+  function showPreloader() {
+    const block = document.querySelector('.fancybox-map');
+    block.classList.add('loading');
+  }
+
+  function removePreloader() {
+    const block = document.querySelector('.fancybox-map');
+    block.classList.remove('loading');
+  }
+
+  function loadMap(target) {
+    const script = document.createElement('script');
+
+    script.type = 'text/javascript';
+    script.src =
+      '//api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A236fab0a399cb25aa9dddb7a9d0915c50f1f7106699eeb8d6b4f38f27fd27098&amp;width=600&amp;height=400&amp;lang=ru_RU&amp;scroll=true&id=' +
+      target;
+    document.head.appendChild(script);
+  }
   $('.fancybox-map').fancybox({
     buttons: ['close'],
 
@@ -173,26 +183,6 @@ $(function () {
     },
   });
 
-  function showPreloader() {
-    const block = document.querySelector('.fancybox-map');
-    block.classList.add('loading');
-  }
-
-  function removePreloader() {
-    const block = document.querySelector('.fancybox-map');
-    block.classList.remove('loading');
-  }
-
-  function loadMap(target) {
-    const script = document.createElement('script');
-
-    script.type = 'text/javascript';
-    script.src =
-      '//api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A236fab0a399cb25aa9dddb7a9d0915c50f1f7106699eeb8d6b4f38f27fd27098&amp;width=600&amp;height=400&amp;lang=ru_RU&amp;scroll=true&id=' +
-      target;
-    document.head.appendChild(script);
-  }
-
   /* Окно сообщения об успешной отправке */
   function successModal() {
     const modalSuccess = document.querySelector('.modal__success');
@@ -212,7 +202,7 @@ $(function () {
       modalSuccess.style.display = 'none';
       overlay.classList.remove('overlay--show');
 
-      elem.removeEventListener('click', () => handleModalSuccess(elem));
+      elem.removeEventListener('click', handleModalSuccess);
     };
 
     modalSuccessClose.addEventListener('click', () =>
@@ -224,19 +214,20 @@ $(function () {
 
   /* Модальное окно */
   function bindModal(trigger, modal, close) {
-    if (!trigger || !modal) return;
     (trigger = document.querySelectorAll(trigger)),
       (modal = document.querySelector(modal)),
       (close = document.querySelectorAll(close));
 
+    if (!trigger || !modal) return;
+
     const overlay = document.querySelector('.overlay');
 
     const hideModal = elem => {
-      console.log('Навешан обработчик');
+      //console.log('Навешан обработчик');
       enableScroll();
       modal.style.display = 'none';
       overlay.classList.remove('overlay--show');
-      elem.removeEventListener('click', () => hideModal(elem));
+      elem.removeEventListener('click', hideModal);
     };
 
     trigger.forEach(t => {
@@ -266,14 +257,6 @@ $(function () {
     });
   }
 
-  // ПЕРВЫЙ аргумент - класс кнопки, при клике на которую будет открываться модальное окно.
-  // ВТОРОЙ аргумент - класс самого модального окна.
-  // ТРЕТИЙ аргумент - класс кнопки, при клике на которую будет закрываться модальное окно.
-  bindModal('.trigger__btn', '.modal__request', '.modal__close');
-  bindModal('.trigger__btn--mobile', '.modal__request', '.modal__close');
-  bindModal('.trigger__cases-btn', '.modal__download', '.modal__close');
-  bindModal('.trigger__biography-btn', '.modal__download', '.modal__close');
-
   /* Скрипт для отправки формы */
   function formSubmit() {
     const forms = document.querySelectorAll('.form');
@@ -291,16 +274,15 @@ $(function () {
 
         successModal(); //временно, после перенесется ниже внутрь условия resp.ok
         e.target.reset(); //временно
-
-        if (resp.ok) {
+        // ВРЕМЕННО ЗАКОММЕНТИРОВАНО ДО ПЕРЕНОСА НА ХОСТИНГ
+        /* if (resp.ok) {
           let result = await resp.json();
         } else {
           alert('Ошибка отправки формы');
-        }
+        }  */
       }
     });
   }
-  formSubmit();
 
   /* Cкролл до начала блока steps */
   function scrollToTopSteps() {
@@ -321,7 +303,6 @@ $(function () {
       });
     });
   }
-  scrollToTopSteps();
 
   /* Подсветка активной ссылки в меню хлебных крошек */
   function setBreadcrumbsLink() {
@@ -333,5 +314,19 @@ $(function () {
       });
     });
   }
+
+  /* Вызовы функций */
+
+  burgerMenu();
+  scrollToAnchor();
+  scrollToTopSteps();
   setBreadcrumbsLink();
+  // ПЕРВЫЙ аргумент - класс кнопки, при клике на которую будет открываться модальное окно.
+  // ВТОРОЙ аргумент - класс самого модального окна.
+  // ТРЕТИЙ аргумент - класс кнопки, при клике на которую будет закрываться модальное окно.
+  bindModal('.trigger__btn', '.modal__request', '.modal__close');
+  bindModal('.trigger__btn--mobile', '.modal__request', '.modal__close');
+  bindModal('.trigger__cases-btn', '.modal__download', '.modal__close');
+  bindModal('.trigger__biography-btn', '.modal__download', '.modal__close');
+  formSubmit();
 });
